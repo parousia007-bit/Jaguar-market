@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultorio Dental - Jaguar Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        /* HEADER PROFESIONAL */
+        .professional-header {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .back-button {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-dental {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .clinic-name {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00b4d8, #48cae4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .clinic-slogan {
+            color: #bdc3c7;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        /* QUICK ACTIONS */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .action-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #2d3436;
+        }
+        .action-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .action-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #00b4d8;
+        }
+        .action-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .action-desc {
+            color: #636e72;
+            line-height: 1.6;
+        }
+        
+        /* SERVICES */
+        .services-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .service-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .service-price {
+            color: #00b4d8;
+            font-weight: 700;
+            font-size: 1.4em;
+            margin: 15px 0;
+        }
+        .service-desc {
+            color: #636e72;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+        
+        /* DOCTOR INFO */
+        .doctor-profile {
+            background: white;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .doctor-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #00b4d8;
+        }
+        .doctor-info h3 {
+            font-size: 1.8em;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+        .doctor-specialty {
+            color: #00b4d8;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* CONTACT BAR */
+        .contact-bar {
+            background: #2d3436;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 20px;
+            font-size: 1.1em;
+        }
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .clinic-name { font-size: 2em; }
+            .quick-actions { grid-template-columns: 1fr; }
+            .doctor-profile { flex-direction: column; text-align: center; }
+            .contact-item { display: block; margin: 15px 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="professional-header">
+        <div class="header-top">
+            <a href="/" class="back-button">
+                <i class="fas fa-arrow-left"></i> Jaguar Market
+            </a>
+            <div class="emergency-badge">
+                <i class="fas fa-phone-alt"></i> Urgencias: 24/7
+            </div>
+        </div>
+        
+        <div class="logo-dental">🦷</div>
+        <h1 class="clinic-name">Smile Dental Center</h1>
+        <p class="clinic-slogan">Tu salud bucal en las mejores manos. Especialistas en odontología moderna con tecnología de vanguardia.</p>
+        
+        <!-- INFO BADGES -->
+        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+            <span style="background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 20px; font-size: 0.9em;">
+                <i class="fas fa-clock"></i> Lunes a Sábado: 9AM - 8PM
+            </span>
+            <span style="background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 20px; font-size: 0.9em;">
+                <i class="fas fa-map-marker-alt"></i> Tuxtla Gutiérrez, Chiapas
+            </span>
+            <span style="background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 20px; font-size: 0.9em;">
+                <i class="fas fa-shield-alt"></i> Protocolos COVID-19
+            </span>
+        </div>
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <div class="quick-actions">
+        <a href="/servicios/dental/agendar-cita" class="action-card">
+            <div class="action-icon">📅</div>
+            <h3 class="action-title">Agendar Cita</h3>
+            <p class="action-desc">Reserva tu consulta en línea. Selecciona fecha, hora y especialista.</p>
+        </a>
+        
+        <a href="/servicios/dental/historial" class="action-card">
+            <div class="action-icon">📋</div>
+            <h3 class="action-title">Historial Digital</h3>
+            <p class="action-desc">Accede a tus registros médicos, radiografías y prescripciones.</p>
+        </a>
+        
+        <a href="https://wa.me/5219611010657?text=Hola!%20Necesito%20información%20sobre%20tratamientos%20dentales" class="action-card" target="_blank">
+            <div class="action-icon">💬</div>
+            <h3 class="action-title">Consulta Rápida</h3>
+            <p class="action-desc">Chatea con nuestro equipo para resolver dudas inmediatas.</p>
+        </a>
+    </div>
+
+    <!-- SERVICIOS -->
+    <div class="services-section">
+        <h2 class="section-title">🦷 Nuestros Servicios</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h4 class="service-name"><i class="fas fa-tooth"></i> Limpieza Dental</h4>
+                <div class="service-price">$450</div>
+                <p class="service-desc">Limpieza profesional con ultrasonido y profilaxis. Incluye examen de detección temprana.</p>
+                <button class="btn-book" onclick="bookService('Limpieza Dental', 450)">Agendar</button>
+            </div>
+            
+            <div class="service-card">
+                <h4 class="service-name"><i class="fas fa-crown"></i> Coronas Dentales</h4>
+                <div class="service-price">$2,500 c/u</div>
+                <p class="service-desc">Coronas de zirconio o porcelana. Durabilidad y estética garantizada.</p>
+                <button class="btn-book" onclick="bookService('Coronas Dentales', 2500)">Cotizar</button>
+            </div>
+            
+            <div class="service-card">
+                <h4 class="service-name"><i class="fas fa-braces"></i> Ortodoncia</h4>
+                <div class="service-price">Desde $15,000</div>
+                <p class="service-desc">Brackets metálicos, estéticos o invisalign. Plan de pagos disponible.</p>
+                <button class="btn-book" onclick="bookService('Ortodoncia', 15000)">Evaluación</button>
+            </div>
+            
+            <div class="service-card">
+                <h4 class="service-name"><i class="fas fa-teeth"></i> Implantes</h4>
+                <div class="service-price">$8,500 c/u</div>
+                <p class="service-desc">Implantes dentales con garantía. Recupera tu sonrisa completa.</p>
+                <button class="btn-book" onclick="bookService('Implantes', 8500)">Información</button>
+            </div>
+            
+            <div class="service-card">
+                <h4 class="service-name"><i class="fas fa-tooth"></i> Blanqueamiento</h4>
+                <div class="service-price">$1,800</div>
+                <p class="service-desc">Blanqueamiento láser en 1 sesión. Resultados inmediatos.</p>
+                <button class="btn-book" onclick="bookService('Blanqueamiento', 1800)">Agendar</button>
+            </div>
+            
+            <div class="service-card">
+                <h4 class="service-name"><i class="fas fa-x-ray"></i> Radiografía Digital</h4>
+                <div class="service-price">$300</div>
+                <p class="service-desc">Panorámica o periapical. Resultados inmediatos en digital.</p>
+                <button class="btn-book" onclick="bookService('Radiografía', 300)">Solicitar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOCTOR PROFILE -->
+    <div class="doctor-profile">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&q=80" alt="Dr. Juan Pérez" class="doctor-photo">
+        <div class="doctor-info">
+            <h3>Dr. Juan Pérez Rodríguez</h3>
+            <span class="doctor-specialty">Cirujano Dentista - Especialista en Implantología</span>
+            <p>Con más de 15 años de experiencia en odontología moderna. Miembro de la Asociación Dental Mexicana y certificado en implantología por la UNAM. Comprometido con tu salud y belleza dental.</p>
+            <div style="margin-top: 15px;">
+                <span style="background: #e3f2fd; color: #1976d2; padding: 5px 15px; border-radius: 15px; font-size: 0.9em; margin-right: 10px;">
+                    <i class="fas fa-graduation-cap"></i> UNAM
+                </span>
+                <span style="background: #f3e5f5; color: #7b1fa2; padding: 5px 15px; border-radius: 15px; font-size: 0.9em;">
+                    <i class="fas fa-award"></i> Certificado
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT BAR -->
+    <div class="contact-bar">
+        <div style="margin-bottom: 20px;">
+            <span class="contact-item">
+                <i class="fas fa-phone"></i> 961 123 4567
+            </span>
+            <span class="contact-item">
+                <i class="fas fa-envelope"></i> contacto@smiledental.com
+            </span>
+            <span class="contact-item">
+                <i class="fas fa-map-marker-alt"></i> Av. Central 123, Tuxtla Gutiérrez
+            </span>
+        </div>
+        
+        <a href="https://wa.me/5219611234567?text=Hola!%20Quisiera%20agendar%20una%20cita%20en%20Smile%20Dental%20Center" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Agenda por WhatsApp
+        </a>
+        
+        <p style="margin-top: 20px; color: #bdc3c7; font-size: 0.9em;">
+            <i class="fas fa-shield-alt"></i> Todos los procedimientos cumplen con normas oficiales mexicanas NOM-013-SSA2-2015
+        </p>
+    </div>
+
+    <!-- CART FLOATING (similar a Tavolos) -->
+    <div id="cart-floating" onclick="openCart()">
+        📋
+        <div class="cart-badge" id="cart-count">0</div>
+    </div>
+
+    <!-- MODAL PARA AGENDAR -->
+    <div id="bookingModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 10000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: white; border-radius: 20px; padding: 30px; max-width: 500px; width: 90%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>🦷 Agendar Cita</h2>
+                <button onclick="closeModal()" style="background: none; border: none; font-size: 30px; cursor: pointer;">×</button>
+            </div>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        
+        function bookService(serviceName, price) {
+            const modal = document.getElementById('bookingModal');
+            const content = document.getElementById('modal-content');
+            
+            content.innerHTML = `
+                <h3>${serviceName} - $${price}</h3>
+                <div style="margin: 20px 0;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Fecha preferida</label>
+                    <input type="date" id="appointment-date" style="width: 100%; padding: 12px; border: 2px solid #dfe6e9; border-radius: 8px;">
+                </div>
+                <div style="margin: 20px 0;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Hora preferida</label>
+                    <select id="appointment-time" style="width: 100%; padding: 12px; border: 2px solid #dfe6e9; border-radius: 8px;">
+                        <option>9:00 AM</option>
+                        <option>10:00 AM</option>
+                        <option>11:00 AM</option>
+                        <option>12:00 PM</option>
+                        <option>4:00 PM</option>
+                        <option>5:00 PM</option>
+                        <option>6:00 PM</option>
+                    </select>
+                </div>
+                <div style="margin: 20px 0;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Tu nombre</label>
+                    <input type="text" id="patient-name" placeholder="Nombre completo" style="width: 100%; padding: 12px; border: 2px solid #dfe6e9; border-radius: 8px;">
+                </div>
+                <div style="margin: 20px 0;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Teléfono</label>
+                    <input type="tel" id="patient-phone" placeholder="10 dígitos" style="width: 100%; padding: 12px; border: 2px solid #dfe6e9; border-radius: 8px;">
+                </div>
+                <button onclick="confirmBooking('${serviceName}', ${price})" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #00b4d8, #48cae4); color: white; border: none; border-radius: 10px; font-weight: 700; font-size: 1.1em; cursor: pointer;">
+                    <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+                </button>
+            `;
+            
+            modal.style.display = 'flex';
+        }
+        
+        function confirmBooking(serviceName, price) {
+            const date = document.getElementById('appointment-date').value;
+            const time = document.getElementById('appointment-time').value;
+            const name = document.getElementById('patient-name').value;
+            const phone = document.getElementById('patient-phone').value;
+            
+            if (!date || !name || !phone) {
+                alert('Por favor completa todos los campos');
+                return;
+            }
+            
+            const whatsappText = `*CITA DENTAL - SMILE DENTAL CENTER*%0A%0A*Servicio:* ${serviceName}%0A*Costo:* $${price}%0A*Fecha:* ${date}%0A*Hora:* ${time}%0A*Paciente:* ${name}%0A*Teléfono:* ${phone}%0A%0A*Confirmar esta cita por favor.*`;
+            
+            window.open(`https://wa.me/5219611234567?text=${whatsappText}`, '_blank');
+            closeModal();
+        }
+        
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+        
+        // Cerrar modal con ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+        
+        // Carrito flotante (similar a Tavolos)
+        function openCart() {
+            if (cart.length === 0) {
+                alert('No tienes servicios agendados');
+                return;
+            }
+            // Implementación similar al carrito de Tavolos
+        }
+    </script>
+</body>
+</html>

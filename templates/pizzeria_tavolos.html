@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzería Tavolos - Menú Completo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding-bottom: 100px;
+        }
+        .header {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            padding: 25px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #FF6B35, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2em;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+        .header p {
+            text-align: center;
+            color: #bdc3c7;
+            font-size: 0.9em;
+        }
+        .search-container {
+            max-width: 650px;
+            margin: 18px auto 0;
+            padding: 0 20px;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .pills-container {
+            max-width: 1200px;
+            margin: 15px auto;
+            padding: 0 20px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .pills-container::-webkit-scrollbar { display: none; }
+        .pills {
+            display: flex;
+            gap: 10px;
+            min-width: min-content;
+            padding-bottom: 8px;
+        }
+        .pill {
+            flex-shrink: 0;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .pill.active {
+            background: linear-gradient(135deg, #FF6B35, #f39c12);
+            box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section-header {
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: 800;
+            color: white;
+            margin: 30px 0 20px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .item-info { flex: 1; padding-right: 10px; }
+        .item-info h3 {
+            font-size: 1.25em;
+            color: #2d3436;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .item-ingredients {
+            color: #636e72;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        .item-badge {
+            background: linear-gradient(135deg, #FF6B35, #f39c12);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .item-badge.vegetariano { background: linear-gradient(135deg, #00B894, #00cec9); }
+        .item-badge.premium { background: linear-gradient(135deg, #d63031, #e17055); }
+        .item-badge.picante { background: linear-gradient(135deg, #e17055, #d63031); }
+        .item-prices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin: 12px 0;
+        }
+        .price-option {
+            padding: 12px;
+            border: 2px solid #dfe6e9;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #f8f9fa;
+        }
+        .price-option:hover {
+            border-color: #FF6B35;
+            background: #fff5f0;
+        }
+        .price-option.selected {
+            border-color: #FF6B35;
+            background: #fff5f0;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        .price-label {
+            display: block;
+            font-size: 0.85em;
+            color: #636e72;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .price-value {
+            display: block;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #FF6B35;
+        }
+        .btn-add {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #2d3436, #000);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .btn-add:active { transform: scale(0.98); }
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+        #cart-floating {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #FF6B35, #f39c12);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            z-index: 9999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #cart-floating:hover { transform: scale(1.1); }
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        #btnResetFilter {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, #FF6B35, #f39c12);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            z-index: 9998;
+        }
+        .hidden { display: none !important; }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.show { display: flex; }
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #636e72;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #dfe6e9;
+        }
+        .cart-item-info { flex: 1; }
+        .cart-item-name {
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 5px;
+        }
+        .cart-item-details {
+            font-size: 0.9em;
+            color: #636e72;
+        }
+        .cart-item-price {
+            font-weight: 700;
+            color: #FF6B35;
+            font-size: 1.1em;
+            margin: 0 15px;
+        }
+        .qty-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .qty-btn {
+            background: #2d3436;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-row { margin-bottom: 15px; }
+        .form-row label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2d3436;
+        }
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dfe6e9;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        #cust-allergies {
+            border-color: #fdcb6e !important;
+            background: #fffbea;
+        }
+        .btn-confirm {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .cart-total {
+            text-align: right;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2d3436;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.5em; }
+            .section-header { font-size: 1.4em; }
+            .item-prices { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+<div style="padding:10px;background:#111;text-align:center;">
+<a href="/" style="color:#fff;text-decoration:none;font-size:14px;">← Volver a Jaguar Market</a>
+</div>
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 200;">
+        <a href="/" style="text-decoration: none; background: rgba(45,52,54,0.9); color: white; padding: 10px 20px; border-radius: 25px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <span style="font-size: 18px;">←</span> Volver
+        </a>
+    </div>
+    <div class="header">
+        
+        <h1 style="margin: 5px 0;">Pizzería Tavolos</h1>
+        
+        <p></p>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 Buscar pizza, pasta, alitas..." onkeyup="filterMenu()">
+        </div>
+
+        <div class="pills-container">
+            <div class="pills">
+                <button class="pill active" data-filter="todas" onclick="filterByCategory('todas')">Todas</button>
+                
+                <button class="pill" data-filter="alitas" onclick="filterByCategory('alitas')">🍗 Alitas</button>
+                <button class="pill" data-filter="bebidas" onclick="filterByCategory('bebidas')">🥤 Bebidas</button>
+                <button class="pill" data-filter="platillos" onclick="filterByCategory('platillos')">🍽️ Platillos</button>
+            </div>
+        </div>
+        
+        <!-- Botón Menú Digital -->
+        <div style="text-align: center; margin: 20px auto; max-width: 600px; padding: 0 20px;">
+            <a href="/pizzerias/tavolos/menu-pdf" style="display: block; background: linear-gradient(135deg, #2d3436, #000); color: white; padding: 16px 30px; border-radius: 15px; text-decoration: none; font-weight: 700; font-size: 1.1em; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+                📄 Menú Digital
+            </a>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.85em; margin-top: 8px; font-style: italic;"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- PIZZAS -->
+        <div class="menu-section" data-category="pizzas">
+            <h2 class="section-header">🍕 PIZZAS</h2>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza de la Casa</h3>
+                        <p class="item-ingredients">Salsa alfredo, mozzarella, espinaca, pollo a la plancha</p>
+                    </div>
+                    <span class="item-badge">Popular</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="95"><span class="price-label">Chica</span><span class="price-value">$95</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="195"><span class="price-label">Mediana</span><span class="price-value">$195</span></div>
+                    <div class="price-option" data-size="Grande" data-price="295"><span class="price-label">Grande</span><span class="price-value">$295</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="395"><span class="price-label">Familiar</span><span class="price-value">$395</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza de la Casa', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Ligera</h3>
+                        <p class="item-ingredients">Mozzarella, champiñones, pimientos y cherry</p>
+                    </div>
+                    <span class="item-badge vegetariano">Vegetariana</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="85"><span class="price-label">Chica</span><span class="price-value">$85</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="185"><span class="price-label">Mediana</span><span class="price-value">$185</span></div>
+                    <div class="price-option" data-size="Grande" data-price="295"><span class="price-label">Grande</span><span class="price-value">$295</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="395"><span class="price-label">Familiar</span><span class="price-value">$395</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Ligera', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Hawaiana</h3>
+                        <p class="item-ingredients">Mozzarella, piña, jamón</p>
+                    </div>
+                    <span class="item-badge">Popular</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="75"><span class="price-label">Chica</span><span class="price-value">$75</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="150"><span class="price-label">Mediana</span><span class="price-value">$150</span></div>
+                    <div class="price-option" data-size="Grande" data-price="245"><span class="price-label">Grande</span><span class="price-value">$245</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="345"><span class="price-label">Familiar</span><span class="price-value">$345</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Hawaiana', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Pepperoni</h3>
+                        <p class="item-ingredients">Mozzarella, pepperoni</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="70"><span class="price-label">Chica</span><span class="price-value">$70</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="140"><span class="price-label">Mediana</span><span class="price-value">$140</span></div>
+                    <div class="price-option" data-size="Grande" data-price="240"><span class="price-label">Grande</span><span class="price-value">$240</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="345"><span class="price-label">Familiar</span><span class="price-value">$345</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Pepperoni', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Margarita</h3>
+                        <p class="item-ingredients">Aceite de olivo con ajo, albahaca, cherry. No lleva salsa</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="80"><span class="price-label">Chica</span><span class="price-value">$80</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="160"><span class="price-label">Mediana</span><span class="price-value">$160</span></div>
+                    <div class="price-option" data-size="Grande" data-price="265"><span class="price-label">Grande</span><span class="price-value">$265</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="365"><span class="price-label">Familiar</span><span class="price-value">$365</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Margarita', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Suprema</h3>
+                        <p class="item-ingredients">Mozzarella, pepperoni, jamón, carne, champiñones, cebollas, olivos negros, pimientos rojos y verdes</p>
+                    </div>
+                    <span class="item-badge premium">Premium</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="135"><span class="price-label">Chica</span><span class="price-value">$135</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="245"><span class="price-label">Mediana</span><span class="price-value">$245</span></div>
+                    <div class="price-option" data-size="Grande" data-price="345"><span class="price-label">Grande</span><span class="price-value">$345</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="455"><span class="price-label">Familiar</span><span class="price-value">$455</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Suprema', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Superior</h3>
+                        <p class="item-ingredients">Mozzarella, pepperoni, jamón, carne</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="95"><span class="price-label">Chica</span><span class="price-value">$95</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="200"><span class="price-label">Mediana</span><span class="price-value">$200</span></div>
+                    <div class="price-option" data-size="Grande" data-price="315"><span class="price-label">Grande</span><span class="price-value">$315</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="415"><span class="price-label">Familiar</span><span class="price-value">$415</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Superior', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Búfalo</h3>
+                        <p class="item-ingredients">Salsa búfalo, mozzarella, pollo a la plancha</p>
+                    </div>
+                    <span class="item-badge picante">Picante</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="85"><span class="price-label">Chica</span><span class="price-value">$85</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="175"><span class="price-label">Mediana</span><span class="price-value">$175</span></div>
+                    <div class="price-option" data-size="Grande" data-price="285"><span class="price-label">Grande</span><span class="price-value">$285</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="385"><span class="price-label">Familiar</span><span class="price-value">$385</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Búfalo', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Florentina</h3>
+                        <p class="item-ingredients">Salsa alfredo, cherry, espinaca</p>
+                    </div>
+                    <span class="item-badge vegetariano">Vegetariana</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="80"><span class="price-label">Chica</span><span class="price-value">$80</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="175"><span class="price-label">Mediana</span><span class="price-value">$175</span></div>
+                    <div class="price-option" data-size="Grande" data-price="275"><span class="price-label">Grande</span><span class="price-value">$275</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="375"><span class="price-label">Familiar</span><span class="price-value">$375</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Florentina', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza de Vegetales</h3>
+                        <p class="item-ingredients">Mozzarella, champiñones, pimientos, cebolla, olivos negros y cherry</p>
+                    </div>
+                    <span class="item-badge vegetariano">Vegetariana</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="125"><span class="price-label">Chica</span><span class="price-value">$125</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="235"><span class="price-label">Mediana</span><span class="price-value">$235</span></div>
+                    <div class="price-option" data-size="Grande" data-price="340"><span class="price-label">Grande</span><span class="price-value">$340</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="445"><span class="price-label">Familiar</span><span class="price-value">$445</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza de Vegetales', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Blanca</h3>
+                        <p class="item-ingredients">Ricotta/atún, cherry y queso mozzarella. No lleva salsa</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="100"><span class="price-label">Chica</span><span class="price-value">$100</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="210"><span class="price-label">Mediana</span><span class="price-value">$210</span></div>
+                    <div class="price-option" data-size="Grande" data-price="315"><span class="price-label">Grande</span><span class="price-value">$315</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="410"><span class="price-label">Familiar</span><span class="price-value">$410</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Blanca', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza de Queso</h3>
+                        <p class="item-ingredients">Queso mozzarella abundante</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="65"><span class="price-label">Chica</span><span class="price-value">$65</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="130"><span class="price-label">Mediana</span><span class="price-value">$130</span></div>
+                    <div class="price-option" data-size="Grande" data-price="215"><span class="price-label">Grande</span><span class="price-value">$215</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="295"><span class="price-label">Familiar</span><span class="price-value">$295</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza de Queso', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza de Salchichas</h3>
+                        <p class="item-ingredients">Mozzarella, salchicha italiana</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="105"><span class="price-label">Chica</span><span class="price-value">$105</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="200"><span class="price-label">Mediana</span><span class="price-value">$200</span></div>
+                    <div class="price-option" data-size="Grande" data-price="305"><span class="price-label">Grande</span><span class="price-value">$305</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="405"><span class="price-label">Familiar</span><span class="price-value">$405</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza de Salchichas', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza de Durazno</h3>
+                        <p class="item-ingredients">Durazno, mozzarella, philadelphia, nuez</p>
+                    </div>
+                    <span class="item-badge premium">Premium</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Chica" data-price="95"><span class="price-label">Chica</span><span class="price-value">$95</span></div>
+                    <div class="price-option" data-size="Mediana" data-price="195"><span class="price-label">Mediana</span><span class="price-value">$195</span></div>
+                    <div class="price-option" data-size="Grande" data-price="295"><span class="price-label">Grande</span><span class="price-value">$295</span></div>
+                    <div class="price-option" data-size="Familiar" data-price="395"><span class="price-label">Familiar</span><span class="price-value">$395</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza de Durazno', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Rey</h3>
+                        <p class="item-ingredients">Carne, jamón, pepperoni, champiñones, pimientos, cebolla, olivos negros, cherry, pollo a la plancha y salchichas</p>
+                    </div>
+                    <span class="item-badge premium">La Más Completa</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Mediana" data-price="310"><span class="price-label">Mediana</span><span class="price-value">$310</span></div>
+                    <div class="price-option" data-size="Grande" data-price="420"><span class="price-label">Grande</span><span class="price-value">$420</span></div>
+    <div class="price-option" data-size="Familiar" data-price="530"><span class="price-label">Familiar</span><span class="price-value">$530</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Rey', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Rellena - Carnes</h3>
+                        <p class="item-ingredients">Mozzarella, jamón, carne de res, pepperoni. No lleva salsa, a menos que la pida</p>
+                    </div>
+                    <span class="item-badge premium">Rellena</span>
+                </div>
+                <div class="item-prices">
+    <div class="price-option" data-size="Mediana" data-price="275"><span class="price-label">Mediana</span><span class="price-value">$275</span></div>
+    <div class="price-option" data-size="Grande" data-price="375"><span class="price-label">Grande</span><span class="price-value">$375</span></div>
+    <div class="price-option" data-size="Familiar" data-price="485"><span class="price-label">Familiar</span><span class="price-value">$485</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Rellena Carnes', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pizzas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pizza Rellena - Vegetales</h3>
+                        <p class="item-ingredients">Queso mozzarella, champiñones, pimientos, cebolla, olivos negros y cherry. No lleva salsa a menos que la pida</p>
+                    </div>
+                    <span class="item-badge vegetariano">Rellena</span>
+                </div>
+                <div class="item-prices">
+    <div class="price-option" data-size="Mediana" data-price="295"><span class="price-label">Mediana</span><span class="price-value">$295</span></div>
+    <div class="price-option" data-size="Grande" data-price="395"><span class="price-label">Grande</span><span class="price-value">$395</span></div>
+    <div class="price-option" data-size="Familiar" data-price="495"><span class="price-label">Familiar</span><span class="price-value">$495</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pizza Rellena Vegetales', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+        </div>
+
+        <!-- PASTAS -->
+        <div class="menu-section" data-category="pastas" style="display:none">
+            <h2 class="section-header">🍝 PASTAS</h2>
+
+            <div class="menu-item" data-category="pastas" style="display:none">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Fettuccini Alfredo</h3>
+                        <p class="item-ingredients">Pasta fettuccini con salsa alfredo cremosa</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Sin Proteína" data-price="170"><span class="price-label">Sin Proteína</span><span class="price-value">$170</span></div>
+                    <div class="price-option" data-size="Con Camarón" data-price="245"><span class="price-label">Con Camarón</span><span class="price-value">$245</span></div>
+                    <div class="price-option" data-size="Con Pollo" data-price="230"><span class="price-label">Con Pollo</span><span class="price-value">$230</span></div>
+                    <div class="price-option" data-size="Con Salchicha" data-price="235"><span class="price-label">Con Salchicha</span><span class="price-value">$235</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Fettuccini Alfredo', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pastas" style="display:none">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Spaghetti / Cabello de Ángel</h3>
+                        <p class="item-ingredients">Con salsa roja o rosa</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Simple" data-price="110"><span class="price-label">Simple</span><span class="price-value">$110</span></div>
+                    <div class="price-option" data-size="Con Carne" data-price="180"><span class="price-label">Con Carne</span><span class="price-value">$180</span></div>
+                    <div class="price-option" data-size="Con Albóndigas" data-price="180"><span class="price-label">Con Albóndigas</span><span class="price-value">$180</span></div>
+                    <div class="price-option" data-size="Con Salchicha" data-price="170"><span class="price-label">Con Salchicha</span><span class="price-value">$170</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Spaghetti', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pastas" style="display:none">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Tortellini Bolognese</h3>
+                        <p class="item-ingredients">Tortellini pasta, vino blanco, salsa rosa y carne molida de res</p>
+                    </div>
+                    <span class="item-badge">Popular</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="285"><span class="price-label">Porción</span><span class="price-value">$285</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Tortellini Bolognese', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pastas" style="display:none">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Bolognese con Salsa</h3>
+                        <p class="item-ingredients">Con salsa rosa o alfredo</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Salsa Rosa" data-price="255"><span class="price-label">Salsa Rosa</span><span class="price-value">$255</span></div>
+                    <div class="price-option" data-size="Alfredo" data-price="260"><span class="price-label">Alfredo</span><span class="price-value">$260</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Bolognese con Salsa', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pastas" style="display:none">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Raviolis de Queso</h3>
+                        <p class="item-ingredients">Pasta rellena de queso en salsa roja y queso mozzarella gratinado</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Simple" data-price="185"><span class="price-label">Simple</span><span class="price-value">$185</span></div>
+                    <div class="price-option" data-size="Bolognese" data-price="210"><span class="price-label">C/Bolognese</span><span class="price-value">$210</span></div>
+                    <div class="price-option" data-size="Con Carne" data-price="205"><span class="price-label">Con Carne</span><span class="price-value">$200</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Raviolis de Queso', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pastas" style="display:none">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Raviolis de Langosta</h3>
+                        <p class="item-ingredients">Pasta rellena de langosta en salsa rosa con queso mozzarella gratinado</p>
+                    </div>
+                    <span class="item-badge premium">Premium</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="230"><span class="price-label">Porción</span><span class="price-value">$230</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Raviolis de Langosta', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pastas" style="display:none">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Plumas al Pesto</h3>
+                        <p class="item-ingredients">Pasta plumas, salsa pesto, cherry, vino blanco</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="260"><span class="price-label">Porción</span><span class="price-value">$260</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Plumas al Pesto', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pastas" style="display:none">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Plumas al Horno</h3>
+                        <p class="item-ingredients">Pasta plumas, salsa de la casa, queso mozzarella gratinado</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="280"><span class="price-label">Porción</span><span class="price-value">$280</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Plumas al Horno', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="pastas" style="display:none">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Lasagna</h3>
+                        <p class="item-ingredients">Lasagna tradicional con carne, salsa roja y queso gratinado. Porción individual.</p>
+                    </div>
+                    <span class="item-badge">Popular</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="290"><span class="price-label">Porción</span><span class="price-value">$290</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Lasagna', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+        </div>
+
+        <!-- ALITAS -->
+        <div class="menu-section" data-category="alitas">
+            <h2 class="section-header">🍗 ALITAS & ENTRADAS</h2>
+
+            <div class="menu-item" data-category="alitas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Alitas Búfalo (9 pzas)</h3>
+                        <p class="item-ingredients">Pimienta negra, aceite de olivo con ajo molido fresco y queso parmesano</p>
+                    </div>
+                    <span class="item-badge picante">Picante</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="9 piezas" data-price="175"><span class="price-label">9 piezas</span><span class="price-value">$175</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Alitas Búfalo', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="alitas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Alitas Mango Habanero (9 pzas)</h3>
+                        <p class="item-ingredients">Salsa de mango con un toque picante de habanero</p>
+                    </div>
+                    <span class="item-badge">Popular</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="9 piezas" data-price="150"><span class="price-label">9 piezas</span><span class="price-value">$150</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Alitas Mango Habanero', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="alitas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Alitas Chipotle (9 pzas)</h3>
+                        <p class="item-ingredients">Salsa chipotle ahumada</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="9 piezas" data-price="145"><span class="price-label">9 piezas</span><span class="price-value">$145</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Alitas Chipotle', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="alitas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Alitas BBQ (9 pzas)</h3>
+                        <p class="item-ingredients">Salsa barbecue tradicional</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="9 piezas" data-price="140"><span class="price-label">9 piezas</span><span class="price-value">$140</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Alitas BBQ', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="alitas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pan con Ajo (4 pzas)</h3>
+                        <p class="item-ingredients">Pan tostado con mantequilla de ajo y hierbas</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="4 piezas" data-price="80"><span class="price-label">4 piezas</span><span class="price-value">$80</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pan con Ajo', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="alitas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Bruschetta (8 pzas)</h3>
+                        <p class="item-ingredients">Pan tostado con tomate fresco, albahaca y aceite de oliva</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="8 piezas" data-price="70"><span class="price-label">8 piezas</span><span class="price-value">$70</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Bruschetta', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="alitas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Dip de Aceite de Oliva con Especias</h3>
+                        <p class="item-ingredients">Aceite de oliva virgen con especias italianas y pan artesanal</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="90"><span class="price-label">Porción</span><span class="price-value">$90</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Dip de Aceite de Oliva', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+        </div>
+
+        <!-- BEBIDAS -->
+        <div class="menu-section" data-category="bebidas">
+            <h2 class="section-header">🥤 BEBIDAS</h2>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Aguas Frescas Naturales</h3>
+                        <p class="item-ingredients">Horchata, Jamaica, Tamarindo (preparadas al momento)</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Vaso" data-price="35"><span class="price-label">Vaso</span><span class="price-value">$35</span></div>
+                    <div class="price-option" data-size="Jarra" data-price="80"><span class="price-label">Jarra (5 vasos)</span><span class="price-value">$80</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Agua Fresca Natural', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Limón con Chía</h3>
+                        <p class="item-ingredients">Jugo de limón natural con semillas de chía</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Vaso" data-price="35"><span class="price-label">Vaso</span><span class="price-value">$35</span></div>
+                    <div class="price-option" data-size="Jarra" data-price="80"><span class="price-label">Jarra</span><span class="price-value">$80</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Limón con Chía', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Agua de Pepino</h3>
+                        <p class="item-ingredients">Pepino fresco con un toque de limón</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Vaso" data-price="40"><span class="price-label">Vaso</span><span class="price-value">$40</span></div>
+                    <div class="price-option" data-size="Jarra" data-price="85"><span class="price-label">Jarra</span><span class="price-value">$85</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Agua de Pepino', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Agua de Piña con Hierbabuena</h3>
+                        <p class="item-ingredients">Piña natural con un toque de hierbabuena fresca</p>
+                    </div>
+                    <span class="item-badge">Popular</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Vaso" data-price="40"><span class="price-label">Vaso</span><span class="price-value">$40</span></div>
+                    <div class="price-option" data-size="Jarra" data-price="85"><span class="price-label">Jarra</span><span class="price-value">$85</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Agua de Piña', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Té Limón Frío</h3>
+                        <p class="item-ingredients">Té helado con hojas de limón</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Vaso" data-price="40"><span class="price-label">Vaso</span><span class="price-value">$40</span></div>
+                    <div class="price-option" data-size="Jarra" data-price="85"><span class="price-label">Jarra</span><span class="price-value">$85</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Té Limón Frío', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Agua de Zanahoria con Naranja</h3>
+                        <p class="item-ingredients">Zanahoria y naranja natural</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Vaso" data-price="40"><span class="price-label">Vaso</span><span class="price-value">$40</span></div>
+                    <div class="price-option" data-size="Jarra" data-price="85"><span class="price-label">Jarra</span><span class="price-value">$85</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Agua de Zanahoria', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Agua de Maracuyá</h3>
+                        <p class="item-ingredients">Pulpa de maracuyá natural</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Vaso" data-price="40"><span class="price-label">Vaso</span><span class="price-value">$40</span></div>
+                    <div class="price-option" data-size="Jarra" data-price="85"><span class="price-label">Jarra</span><span class="price-value">$85</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Agua de Maracuyá', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Agua de Guanábana</h3>
+                        <p class="item-ingredients">Pulpa de guanábana natural</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Vaso" data-price="40"><span class="price-label">Vaso</span><span class="price-value">$40</span></div>
+                    <div class="price-option" data-size="Jarra" data-price="85"><span class="price-label">Jarra</span><span class="price-value">$85</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Agua de Guanábana', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Refrescos</h3>
+                        <p class="item-ingredients">Coca-Cola, Sprite, Fanta, Fresca, Sidral Mundet</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Lata" data-price="35"><span class="price-label">Lata</span><span class="price-value">$35</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Refresco', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="bebidas">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pozol de Cacao</h3>
+                        <p class="item-ingredients">Disfrútalo frío con cacahuates y ensalada de pepino</p>
+                    </div>
+                    <span class="item-badge premium">Especial</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Vaso" data-price="50"><span class="price-label">Vaso</span><span class="price-value">$50</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pozol de Cacao', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+        </div>
+
+        <!-- PLATILLOS -->
+        <div class="menu-section" data-category="platillos">
+            <h2 class="section-header">🍽️ PLATILLOS</h2>
+            <p style="text-align: center; color: white; margin-bottom: 20px; font-style: italic;">Todos los platillos incluyen pasta y pan del día. Porción individual.</p>
+
+            <div class="menu-item" data-category="platillos">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Camarón Scampi</h3>
+                        <p class="item-ingredients">Para 1 persona. Camarones, vino blanco, limón, cherry. Con pasta cabello de ángel.</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="200"><span class="price-label">Porción</span><span class="price-value">$200</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Camarón Scampi', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="platillos">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Tavolo Especial</h3>
+                        <p class="item-ingredients">Para 1 persona. Pollo a la plancha, champiñones, pimientos, cebolla. Con spaghetti.</p>
+                    </div>
+                    <span class="item-badge">Popular</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="280"><span class="price-label">Porción</span><span class="price-value">$280</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Tavolo Especial', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="platillos">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pollo Cremora</h3>
+                        <p class="item-ingredients">Para 1 persona. Pollo a la plancha, salsa Alfredo, champiñones, vino blanco. Con spaghetti.</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="285"><span class="price-label">Porción</span><span class="price-value">$285</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pollo Cremora', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="platillos">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pollo a la Parmigiana</h3>
+                        <p class="item-ingredients">Para 1 persona. Spaghetti, filete de pollo empanizado con salsa roja y queso mozzarella gratinado.</p>
+                    </div>
+                    <span class="item-badge">Popular</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="200"><span class="price-label">Porción</span><span class="price-value">$200</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pollo a la Parmigiana', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="platillos">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Vegetales con Pollo a la Plancha</h3>
+                        <p class="item-ingredients">Para 1 persona. Pollo a la plancha, champiñones, pimientos, cebolla, brócoli, cherry.</p>
+                    </div>
+                    <span class="item-badge vegetariano">Saludable</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="215"><span class="price-label">Porción</span><span class="price-value">$215</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Vegetales con Pollo', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="platillos">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Carne a la Parmigiana</h3>
+                        <p class="item-ingredients">Para 1 persona. Spaghetti, carne de res empanizada con salsa roja y queso mozzarella gratinado.</p>
+                    </div>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="210"><span class="price-label">Porción</span><span class="price-value">$210</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Carne a la Parmigiana', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="platillos">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Berenjenas a la Parmigiana</h3>
+                        <p class="item-ingredients">Para 1 persona. Spaghetti, berenjenas empanizadas en salsa roja y queso mozzarella gratinado.</p>
+                    </div>
+                    <span class="item-badge vegetariano">Vegetariano</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="190"><span class="price-label">Porción</span><span class="price-value">$190</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Berenjenas a la Parmigiana', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="platillos">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pasta Combo 1</h3>
+                        <p class="item-ingredients">Para 1 persona. Pasta fettuccini con salsa alfredo, almejas, camarón, ajo, aceite de olivo, vino blanco.</p>
+                    </div>
+                    <span class="item-badge premium">Premium</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="380"><span class="price-label">Porción</span><span class="price-value">$380</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pasta Combo 1', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+            <div class="menu-item" data-category="platillos">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Pasta Combo 2</h3>
+                        <p class="item-ingredients">Para 1 persona. Pasta linguine con salsa roja, almejas, camarón, ajo, aceite de olivo, vino blanco.</p>
+                    </div>
+                    <span class="item-badge premium">Premium</span>
+                </div>
+                <div class="item-prices">
+                    <div class="price-option" data-size="Porción" data-price="360"><span class="price-label">Porción</span><span class="price-value">$360</span></div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Pasta Combo 2', this)"><i class="fas fa-plus"></i> Agregar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="https://wa.me/5219611010657?text=Hola! Quisiera hacer un pedido en Pizzería Tavolos" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="cart-floating" onclick="openCart()">
+        🛒
+        <div class="cart-badge" id="cart-count">0</div>
+    </div>
+
+    <button id="btnResetFilter" onclick="resetFilter()">← Ver Todo</button>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Tu Pedido</h2>
+                <button class="close-modal" onclick="closeCart()">×</button>
+            </div>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal">Total: $0</div>
+            
+            <div class="form-row">
+                <label>Nombre</label>
+                <input type="text" id="cust-name" placeholder="Tu nombre">
+            </div>
+            <div class="form-row">
+                <label>Teléfono</label>
+                <input type="tel" id="cust-phone" placeholder="10 dígitos">
+            </div>
+            <div class="form-row">
+                <label>Dirección</label>
+                <input type="text" id="cust-address" placeholder="Calle, número, colonia">
+            </div>
+            <div class="form-row">
+                <label>🚨 ¿Alergias o restricciones alimentarias?</label>
+                <input type="text" id="cust-allergies" placeholder="Ej: sin gluten, alérgico a mariscos">
+            </div>
+            <div class="form-row">
+                <label>Notas adicionales</label>
+                <textarea id="cust-notes" rows="2" placeholder="Ej: sin cebolla, extra queso"></textarea>
+            </div>
+            
+            <button class="btn-confirm" onclick="confirmOrder()">
+                <i class="fab fa-whatsapp"></i> Confirmar Pedido por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('tavolos_cart')) || [];
+        let currentFilter = 'todas';
+
+        // Actualizar badge al cargar
+        window.addEventListener('DOMContentLoaded', function() {
+            updateCartBadge();
+        });
+
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.price-option')) {
+                const option = e.target.closest('.price-option');
+                const menuItem = option.closest('.menu-item');
+                menuItem.querySelectorAll('.price-option').forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            }
+        });
+
+        function addToCart(productName, button) {
+            const menuItem = button.closest('.menu-item');
+            const selectedPrice = menuItem.querySelector('.price-option.selected');
+            
+            if (!selectedPrice) {
+                alert('Por favor selecciona un tamaño primero');
+                return;
+            }
+
+            const size = selectedPrice.dataset.size;
+            const price = parseFloat(selectedPrice.dataset.price);
+
+            const existingItem = cart.find(item => item.name === productName && item.size === size);
+
+            if (existingItem) {
+                existingItem.qty++;
+            } else {
+                cart.push({ name: productName, size: size, price: price, qty: 1 });
+            }
+
+            localStorage.setItem('tavolos_cart', JSON.stringify(cart));
+            updateCartBadge();
+            
+            button.textContent = '✓ Agregado';
+            button.style.background = '#00B894';
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-plus"></i> Agregar';
+                button.style.background = 'linear-gradient(135deg, #2d3436, #000)';
+            }, 1000);
+        }
+
+        function updateCartBadge() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+        }
+    localStorage.setItem('tavolos_cart', JSON.stringify(cart));
+
+        function openCart() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+            renderCart();
+            document.getElementById('cartModal').classList.add('show');
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').classList.remove('show');
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            let html = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-details">${item.size}</div>
+                        </div>
+                        <div class="cart-item-price">$${subtotal}</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+                            <span>${item.qty}</span>
+                            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            document.getElementById('cartTotal').textContent = `Total: $${total}`;
+        }
+
+        function changeQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            localStorage.setItem('tavolos_cart', JSON.stringify(cart));
+            updateCartBadge();
+            renderCart();
+        }
+
+        function confirmOrder() {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+            const allergies = document.getElementById('cust-allergies').value.trim();
+            const notes = document.getElementById('cust-notes').value.trim();
+
+            if (!name || !phone || !address) {
+                alert('Por favor completa Nombre, Teléfono y Dirección');
+                return;
+            }
+
+            let text = `*Pedido Pizzería Tavolos*%0A%0A`;
+            text += `*Cliente:*%0ANombre: ${name}%0ATeléfono: ${phone}%0ADirección: ${address}%0A%0A`;
+            
+            if (allergies) {
+                text += `🚨 *ALERGIAS/RESTRICCIONES:* ${encodeURIComponent(allergies)}%0A%0A`;
+            }
+
+            text += `*Pedido:*%0A`;
+            let total = 0;
+
+            cart.forEach(item => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                text += `- ${item.name} (${item.size}) x${item.qty} — $${subtotal}%0A`;
+            });
+
+            text += `%0A*Total: $${total}*%0A`;
+
+            if (notes) {
+                text += `%0A*Notas:* ${encodeURIComponent(notes)}`;
+            }
+
+            const whatsappUrl = `https://wa.me/5219611010657?text=${text}`;
+            window.open(whatsappUrl, '_blank');
+
+            cart = [];
+            localStorage.removeItem('tavolos_cart');
+            updateCartBadge();
+            closeCart();
+        }
+
+        function filterByCategory(category) {
+            currentFilter = category;
+
+            document.querySelectorAll('.pill').forEach(pill => {
+                pill.classList.remove('active');
+                if (pill.dataset.filter === category) {
+                    pill.classList.add('active');
+                }
+            });
+
+            document.getElementById('searchInput').value = '';
+
+            const sections = document.querySelectorAll('.menu-section');
+
+            if (category === 'todas') {
+                sections.forEach(section => section.classList.remove('hidden'));
+                document.getElementById('btnResetFilter').style.display = 'none';
+            } else {
+                sections.forEach(section => {
+                    if (section.dataset.category === category) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+                document.getElementById('btnResetFilter').style.display = 'block';
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterMenu() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            if (searchTerm.length < 3 && searchTerm.length > 0) {
+                return;
+            }
+
+            const items = document.querySelectorAll('.menu-item');
+            const sections = document.querySelectorAll('.menu-section');
+
+            if (searchTerm === '') {
+                filterByCategory(currentFilter);
+                return;
+            }
+
+            sections.forEach(section => {
+                let hasVisibleItems = false;
+                const itemsInSection = section.querySelectorAll('.menu-item');
+
+                itemsInSection.forEach(item => {
+                    const title = item.querySelector('h3').textContent.toLowerCase();
+                    const ingredients = item.querySelector('.item-ingredients')?.textContent.toLowerCase() || '';
+
+                    if (title.includes(searchTerm) || ingredients.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        hasVisibleItems = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                section.classList.toggle('hidden', !hasVisibleItems);
+            });
+
+            document.getElementById('btnResetFilter').style.display = 'block';
+        }
+
+        function resetFilter() {
+            filterByCategory('todas');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCart();
+            }
+        });
+    </script>
+</body>
+</html>

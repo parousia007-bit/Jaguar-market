@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gelée Dely | Gelatinas Artesanales - Jaguar Market</title>
+  <meta name="description" content="Las gelatinas más creativas y deliciosas de Tuxtla Gutiérrez. Gelatinas temáticas, postres personalizados y sabores únicos.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --gelatin-pink: #FF6BBB;
+      --gelatin-purple: #A56EFF;
+      --gelatin-blue: #4FC3F7;
+      --gelatin-green: #66BB6A;
+      --gelatin-yellow: #FFD54F;
+      --gelatin-orange: #FFB74D;
+      --gelatin-pink-light: #FFCDD2;
+      --gelatin-purple-light: #F1BEE7;
+      --white: #FFFFFF;
+      --off-white: #FFF8F8;
+      --gray-light: #F5F5F5;
+      --gray: #757575;
+      --black: #333333;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+      --shadow-colorful: 0 4px 20px rgba(255,107,139,0.3);
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 50px;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      --font-display: 'Trebuchet MS', sans-serif;
+      --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      --bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-sans);
+      background: linear-gradient(135deg, var(--gelatin-pink-light) 0%, var(--gelatin-purple-light) 100%);
+      color: var(--black);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 3px solid var(--gelatin-pink);
+      z-index: 1000;
+      box-shadow: var(--shadow-colorful);
+    }
+    .header-content {
+      max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg);
+      display: flex; align-items: center; justify-content: space-between; height: 70px;
+    }
+    .back-link {
+      display: flex; align-items: center; gap: var(--space-sm);
+      color: var(--gelatin-purple); text-decoration: none;
+      font-size: 0.9rem; font-weight: 600;
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--gelatin-pink); transform: translateX(-2px); }
+    .business-info-header { display: flex; align-items: center; gap: var(--space-md); }
+    .business-logo {
+      width: 45px; height: 45px;
+      background: linear-gradient(135deg, var(--gelatin-pink) 0%, var(--gelatin-purple) 100%);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-size: 1.5rem; font-weight: 800;
+      box-shadow: var(--shadow-colorful);
+    }
+    .business-name-header {
+      font-family: var(--font-display);
+      font-weight: 700; font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--gelatin-pink) 0%, var(--gelatin-purple) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--gelatin-pink) 0%, var(--gelatin-blue) 50%, var(--gelatin-purple) 100%);
+      color: var(--white);
+      padding: calc(70px + 4rem) var(--space-lg) 4rem;
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .hero::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="8" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="12" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="6" fill="rgba(255,255,255,0.1)"/></svg>');
+      background-size: 200px 200px; opacity: 0.3;
+      animation: float 20s infinite linear;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100px) rotate(360deg); }
+    }
+    .hero-container { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+    .business-badge {
+      display: inline-flex; align-items: center; gap: var(--space-sm);
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--white); padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-full); font-size: 0.9rem; font-weight: 700;
+      margin-bottom: var(--space-xl);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700; line-height: 1.1;
+      margin-bottom: var(--space-lg);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .hero-subtitle {
+      font-size: 1.15rem; color: rgba(255, 255, 255, 0.95);
+      margin-bottom: var(--space-2xl); line-height: 1.6; font-weight: 400;
+    }
+    .hero-meta {
+      display: flex; justify-content: center; gap: var(--space-2xl);
+      margin-bottom: var(--space-2xl); flex-wrap: wrap;
+    }
+    .meta-item {
+      display: flex; flex-direction: column; align-items: center; gap: var(--space-sm);
+    }
+    .meta-icon {
+      width: 60px; height: 60px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    .meta-text {
+      font-weight: 600; text-align: center; font-size: 0.95rem;
+    }
+    .hero-actions {
+      display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-sm);
+      padding: 1rem 2rem;
+      border-radius: var(--radius-full);
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none; border: none;
+      cursor: pointer; transition: all var(--bounce);
+      white-space: nowrap;
+      font-family: var(--font-sans);
+    }
+    .btn-whatsapp {
+      background: #25D366; color: var(--white);
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe57;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gelatin-pink) 0%, var(--gelatin-purple) 100%);
+      color: var(--white);
+      box-shadow: var(--shadow-colorful);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(255,107,139,0.4);
+    }
+
+    /* MENU SECTION */
+    .menu-section {
+      padding: var(--space-3xl) var(--space-lg);
+      background: var(--off-white);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--gelatin-purple);
+      margin-bottom: var(--space-sm);
+    }
+    .section-subtitle {
+      color: var(--gray);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* FILTERS */
+    .filters {
+      display: flex; gap: var(--space-md); justify-content: center;
+      margin-bottom: var(--space-2xl); flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--gelatin-purple-light);
+      background: var(--white); color: var(--gelatin-purple);
+      border-radius: var(--radius-full); font-weight: 700;
+      cursor: pointer; transition: all var(--bounce);
+      font-family: var(--font-sans);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--gelatin-purple); color: var(--white);
+      transform: translateY(-2px); box-shadow: var(--shadow-colorful);
+    }
+
+    /* FLIP CARDS */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-xl);
+    }
+    .flip-card {
+      background-color: transparent;
+      width: 100%; height: 450px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative; width: 100%; height: 100%;
+      text-align: center; transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute; width: 100%; height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .flip-card-front {
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+    }
+    .card-image-wrapper {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--gelatin-pink-light), var(--gelatin-purple-light));
+    }
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition);
+    }
+    .flip-card:hover .card-image {
+      transform: scale(1.05);
+    }
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+    .badge-popular { background: var(--gelatin-pink); color: var(--white); }
+    .badge-new { background: var(--gelatin-blue); color: var(--white); }
+    .badge-special { background: var(--gelatin-purple); color: var(--white); }
+    .badge-thematic { background: var(--gelatin-green); color: var(--white); }
+
+    .card-content {
+      padding: var(--space-lg);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gelatin-purple);
+      margin-bottom: var(--space-sm);
+    }
+    .card-description {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .card-price-preview {
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 2px dashed var(--gelatin-pink-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .price-from {
+      color: var(--gray);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .price-value-preview {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--gelatin-pink);
+    }
+    .flip-hint {
+      text-align: center;
+      color: var(--gelatin-purple);
+      font-size: 0.8rem;
+      margin-top: var(--space-sm);
+      font-weight: 600;
+    }
+
+    /* BACK OF CARD */
+    .flip-card-back {
+      background: linear-gradient(135deg, var(--gelatin-pink) 0%, var(--gelatin-purple) 100%);
+      color: var(--white);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      padding: var(--space-xl);
+    }
+    .back-header {
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+    .back-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+    }
+    .back-description {
+      font-size: 0.95rem;
+      opacity: 0.95;
+      line-height: 1.5;
+    }
+    .back-prices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+    .price-option-back {
+      background: rgba(255, 255, 255, 0.2);
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    .price-label-back {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: var(--space-xs);
+      opacity: 0.9;
+      font-weight: 600;
+    }
+    .price-value-back {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.75rem;
+    }
+    .back-action {
+      margin-top: auto;
+    }
+    .btn-add-back {
+      background: var(--white);
+      color: var(--gelatin-purple);
+      padding: 1rem;
+      border-radius: var(--radius-full);
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      width: 100%;
+      font-size: 1rem;
+    }
+    .btn-add-back:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+    }
+
+    /* FLOATING WHATSAPP */
+    .floating-whatsapp {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 70px; height: 70px;
+      background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: var(--white);
+      cursor: pointer; transition: all var(--bounce);
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      animation: bounce 2s infinite;
+      text-decoration: none;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+    .floating-whatsapp:hover {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+    }
+
+    /* CONFETTI */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: var(--gelatin-pink);
+      position: absolute;
+      animation: confetti-fall 3s linear forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    @keyframes confetti-fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { padding: calc(70px + 2rem) var(--space-md) 2rem; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 300px; justify-content: center; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .flip-card { height: 420px; }
+      .filters { gap: var(--space-sm); }
+      .filter-btn { font-size: 0.85rem; padding: 0.6rem 1.2rem; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .flip-card { animation: fadeInUp 0.6s var(--bounce) backwards; }
+    .flip-card:nth-child(1) { animation-delay: 0.1s; }
+    .flip-card:nth-child(2) { animation-delay: 0.2s; }
+    .flip-card:nth-child(3) { animation-delay: 0.3s; }
+    .flip-card:nth-child(4) { animation-delay: 0.4s; }
+    .flip-card:nth-child(5) { animation-delay: 0.5s; }
+    .flip-card:nth-child(6) { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a href="/" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Volver
+      </a>
+      <div class="business-info-header">
+        <div class="business-logo">G</div>
+        <span class="business-name-header">Gelée Dely</span>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="shareMenu()" style="padding: 0.625rem 1.25rem; font-size: 0.9rem;">
+          <i class="fas fa-share-all"></i>
+          <span>Compartir</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-container">
+      <div class="business-badge">
+        <i class="fas fa-star"></i>
+        ¡Gelatinas Creativas Hechas con Amor!
+      </div>
+      <h1 class="hero-title">Gelée Dely</h1>
+      <p class="hero-subtitle">
+        Las gelatinas más divertidas y deliciosas de Tuxtla Gutiérrez.
+        Diseños únicos, sabores increíbles y momentos llenos de dulzura.
+      </p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-icon"><i class="fas fa-star"></i></div>
+          <div class="meta-text"><strong>4.9</strong><br>(200+ reseñas)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon"><i class="fas fa-clock"></i></div>
+          <div class="meta-text">Entrega<br>24-48 horas</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="meta-text">Tuxtla<br>Gutiérrez</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-whatsapp" onclick="orderWhatsApp()">
+          <i class="fab fa-whatsapp"></i>
+          Pedir por WhatsApp
+        </button>
+        <button class="btn btn-primary" onclick="scrollToMenu()">
+          <i class="fas fa-utensils"></i>
+          Ver Gelatinas
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestras Gelatinas</h2>
+        <p class="section-subtitle">Haz click en las tarjetas para ver detalles y precios</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" onclick="filterMenu('todas')">Todas</button>
+        <button class="filter-btn" onclick="filterMenu('populares')">Más Populares</button>
+        <button class="filter-btn" onclick="filterMenu('tematicas')">Temáticas</button>
+        <button class="filter-btn" onclick="filterMenu('especiales')">Especiales</button>
+        <button class="filter-btn" onclick="filterMenu('clasicas')">Clásicas</button>
+      </div>
+
+      <div class="menu-grid">
+        <!-- SUPER MARIO BROS -->
+        <div class="flip-card" data-category="populares tematicas" onclick="flipCard(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" alt="Super Mario Bros" class="card-image">
+                <span class="card-badge badge-thematic">Temática</span>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Super Mario Bros</h3>
+                <p class="card-description">Gelatina de fresa y vainilla con diseño de Mario, Hongos y Estrellas</p>
+                <div class="card-price-preview">
+                  <span class="price-from">Desde</span>
+                  <span class="price-value-preview">$45</span>
+                </div>
+                <p class="flip-hint"><i class="fas fa-sync-alt"></i> Click para ver precios</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <h3 class="back-title">Super Mario Bros</h3>
+                <p class="back-description">¡Diversión en cada cucharada!</p>
+              </div>
+              <div class="back-prices">
+                <div class="price-option-back">
+                  <span class="price-label-back">Individual</span>
+                  <span class="price-value-back">$45</span>
+                </div>
+                <div class="price-option-back">
+                  <span class="price-label-back">Familiar</span>
+                  <span class="price-value-back">$120</span>
+                </div>
+              </div>
+              <div class="back-action">
+                <button class="btn-add-back" onclick="addToOrder(event, 'Super Mario Bros')">
+                  <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOMBA & HONGUITO -->
+        <div class="flip-card" data-category="populares tematicas" onclick="flipCard(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop" alt="Bomba & Honguito" class="card-image">
+                <span class="card-badge badge-popular">Popular</span>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Bomba & Honguito</h3>
+                <p class="card-description">Mezcla de piña y coco con diseños de bombas y hongos power-up</p>
+                <div class="card-price-preview">
+                  <span class="price-from">Desde</span>
+                  <span class="price-value-preview">$40</span>
+                </div>
+                <p class="flip-hint"><i class="fas fa-sync-alt"></i> Click para ver precios</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <h3 class="back-title">Bomba & Honguito</h3>
+                <p class="back-description">¡Energía para tu día!</p>
+              </div>
+              <div class="back-prices">
+                <div class="price-option-back">
+                  <span class="price-label-back">Individual</span>
+                  <span class="price-value-back">$40</span>
+                </div>
+                <div class="price-option-back">
+                  <span class="price-label-back">Familiar</span>
+                  <span class="price-value-back">$110</span>
+                </div>
+              </div>
+              <div class="back-action">
+                <button class="btn-add-back" onclick="addToOrder(event, 'Bomba & Honguito')">
+                  <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PIÑA & FRUTOS ROJOS -->
+        <div class="flip-card" data-category="populares clasicas" onclick="flipCard(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1587049352846-4a222e784fbb?w=400&h=300&fit=crop" alt="Piña & Frutos Rojos" class="card-image">
+                <span class="card-badge badge-popular">Popular</span>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Piña & Frutos Rojos</h3>
+                <p class="card-description">Deliciosa combinación de piña natural con frambuesa, fresa y arándanos</p>
+                <div class="card-price-preview">
+                  <span class="price-from">Desde</span>
+                  <span class="price-value-preview">$35</span>
+                </div>
+                <p class="flip-hint"><i class="fas fa-sync-alt"></i> Click para ver precios</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <h3 class="back-title">Piña & Frutos Rojos</h3>
+                <p class="back-description">Frescura garantizada</p>
+              </div>
+              <div class="back-prices">
+                <div class="price-option-back">
+                  <span class="price-label-back">Individual</span>
+                  <span class="price-value-back">$35</span>
+                </div>
+                <div class="price-option-back">
+                  <span class="price-label-back">Familiar</span>
+                  <span class="price-value-back">$95</span>
+                </div>
+              </div>
+              <div class="back-action">
+                <button class="btn-add-back" onclick="addToOrder(event, 'Piña & Frutos Rojos')">
+                  <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARCOÍRIS MÁGICO -->
+        <div class="flip-card" data-category="tematicas especiales" onclick="flipCard(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=400&h=300&fit=crop" alt="Arcoíris Mágico" class="card-image">
+                <span class="card-badge badge-special">Especial</span>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Arcoíris Mágico</h3>
+                <p class="card-description">Capas de fresa, naranja, piña, limón, uva y blueberry</p>
+                <div class="card-price-preview">
+                  <span class="price-from">Desde</span>
+                  <span class="price-value-preview">$50</span>
+                </div>
+                <p class="flip-hint"><i class="fas fa-sync-alt"></i> Click para ver precios</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <h3 class="back-title">Arcoíris Mágico</h3>
+                <p class="back-description">Un festín de colores y sabores</p>
+              </div>
+              <div class="back-prices">
+                <div class="price-option-back">
+                  <span class="price-label-back">Individual</span>
+                  <span class="price-value-back">$50</span>
+                </div>
+                <div class="price-option-back">
+                  <span class="price-label-back">Familiar</span>
+                  <span class="price-value-back">$135</span>
+                </div>
+              </div>
+              <div class="back-action">
+                <button class="btn-add-back" onclick="addToOrder(event, 'Arcoíris Mágico')">
+                  <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DURAZNO CREMOSO -->
+        <div class="flip-card" data-category="clasicas" onclick="flipCard(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?w=400&h=300&fit=crop" alt="Durazno Cremoso" class="card-image">
+                <span class="card-badge badge-new">Nuevo</span>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Durazno Cremoso</h3>
+                <p class="card-description">Suave gelatina de durazno con trozos de fruta natural y crema</p>
+                <div class="card-price-preview">
+                  <span class="price-from">Desde</span>
+                  <span class="price-value-preview">$30</span>
+                </div>
+                <p class="flip-hint"><i class="fas fa-sync-alt"></i> Click para ver precios</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <h3 class="back-title">Durazno Cremoso</h3>
+                <p class="back-description">Tradición con un toque especial</p>
+              </div>
+              <div class="back-prices">
+                <div class="price-option-back">
+                  <span class="price-label-back">Individual</span>
+                  <span class="price-value-back">$30</span>
+                </div>
+                <div class="price-option-back">
+                  <span class="price-label-back">Familiar</span>
+                  <span class="price-value-back">$85</span>
+                </div>
+              </div>
+              <div class="back-action">
+                <button class="btn-add-back" onclick="addToOrder(event, 'Durazno Cremoso')">
+                  <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERSONALIZADA -->
+        <div class="flip-card" data-category="especiales" onclick="flipCard(this)">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=300&fit=crop" alt="Personalizada" class="card-image">
+                <span class="card-badge badge-special">Especial</span>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Personalizada</h3>
+                <p class="card-description">¡Crea tu propia gelatina! Elige sabores, colores y diseño</p>
+                <div class="card-price-preview">
+                  <span class="price-from">Desde</span>
+                  <span class="price-value-preview">$60</span>
+                </div>
+                <p class="flip-hint"><i class="fas fa-sync-alt"></i> Click para cotizar</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <h3 class="back-title">Personalizada</h3>
+                <p class="back-description">Perfecta para eventos especiales</p>
+              </div>
+              <div class="back-prices">
+                <div class="price-option-back">
+                  <span class="price-label-back">Desde</span>
+                  <span class="price-value-back">$60</span>
+                </div>
+                <div class="price-option-back">
+                  <span class="price-label-back">Cotizar</span>
+                  <span class="price-value-back" style="font-size: 1.2rem;">Precio</span>
+                </div>
+              </div>
+              <div class="back-action">
+                <button class="btn-add-back" onclick="addToOrder(event, 'Gelatina Personalizada')">
+                  <i class="fab fa-whatsapp"></i> Cotizar Ahora
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/529651295202?text=Hola! Quisiera hacer un pedido en Gelée Dely" class="floating-whatsapp" target="_blank" aria-label="Pedir por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // CONFETTI EFFECT
+    function createConfetti(x, y) {
+      const colors = ["#FF6BBB", '#A56EFF', '#4FC3F7', '#66BB6A', '#FFD54F', '#FFB74D'];
+      const confettiCount = 30;
+
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = x + 'px';
+        confetti.style.top = y + 'px';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = (Math.random() * 10 + 5) + 'px';
+        confetti.style.height = confetti.style.width;
+        confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 100 + 50;
+        confetti.style.setProperty("--tx", Math.cos(angle) * distance + 'px');
+        confetti.style.setProperty("--ty", Math.sin(angle) * distance + 'px');
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    }
+
+    // FLIP CARD
+    function flipCard(card) {
+      card.classList.toggle('flipped');
+    }
+
+    // SCROLL TO MENU
+    function scrollToMenu() {
+      document.getElementById('menu').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // FILTERS
+    function filterMenu(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const items = document.querySelectorAll('.flip-card');
+      items.forEach(item => {
+        if (category === 'todas') {
+          item.style.display = 'block';
+        } else {
+          const categories = item.dataset.category || "";
+          item.style.display = categories.includes(category) ? 'block' : 'none';
+        }
+      });
+
+      const visibleItems = document.querySelectorAll('.flip-card[style="display: block"]');
+      visibleItems.forEach((item, index) => {
+        item.style.animation = 'none';
+        setTimeout(() => {
+          item.style.animation = 'fadeInUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) ' + (index * 0.1) + 's backwards';
+        }, 10);
+      });
+    }
+
+    // ADD TO ORDER
+    function addToOrder(event, gelatinName) {
+      event.stopPropagation();
+
+      // Confetti effect
+      const rect = event.target.getBoundingClientRect();
+      createConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+      // WhatsApp
+      const message = 'Hola! Me gustaría ordenar ' + gelatinName + ' de Gelée Dely';
+      const whatsappURL = 'https://wa.me/529651295202?text=' + encodeURIComponent(message);
+
+      setTimeout(() => {
+        window.open(whatsappURL, '_blank');
+      }, 300);
+
+      // Visual feedback
+      const button = event.target;
+      const originalHTML = button.innerHTML;
+      button.innerHTML = '<i class="fas fa-check"></i> ¡Agregada!';
+      button.style.background = '#66BB6A';
+
+      setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.style.background = "";
+      }, 2000);
+    }
+
+    // WHATSAPP GENERAL
+    function orderWhatsApp() {
+      const message = 'Hola! Me gustaría hacer un pedido en Gelée Dely. ¿Cuáles son las opciones disponibles?';
+      const whatsappURL = 'https://wa.me/529651295202?text=' + encodeURIComponent(message);
+      window.open(whatsappURL, '_blank');
+    }
+
+    // SHARE MENU
+    function shareMenu() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Gelée Dely',
+          text: 'Mira las gelatinas más creativas de Gelée Dely',
+          url: window.location.href
+        }).catch(err => console.log('Error sharing:', err));
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('¡Link copiado al portapapeles!');
+      }
+    }
+
+    // HEADER SCROLL
+    let lastScroll = 0;
+    const header = document.querySelector('.header');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll <= 0) {
+        header.style.transform = 'translateY(0)';
+        return;
+      }
+      if (currentScroll > lastScroll && currentScroll > 200) {
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        header.style.transform = 'translateY(0)';
+      }
+      lastScroll = currentScroll;
+    });
+
+    // ANALYTICS
+    function trackEvent(action, label) {
+      console.log('Event: ' + action + ' - ' + label);
+    }
+
+    document.querySelectorAll('.btn-add-back').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const gelatinName = btn.closest('.flip-card').querySelector('.card-title').textContent;
+        trackEvent('Add to Order', gelatinName);
+      });
+    });
+
+    // PERFORMANCE
+    window.addEventListener('load', () => {
+      const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+      console.log('Gelee Dely page loaded in ' + loadTime + 'ms');
+      trackEvent('Performance', 'Load Time: ' + loadTime + 'ms');
+    });
+
+    // TOUCH EVENTS FOR MOBILE FLIP
+    if ('ontouchstart' in window) {
+      document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('touchstart', function(e) {
+          if (!e.target.closest('.btn-add-back')) {
+            this.classList.toggle('flipped');
+          }
+        }, { passive: true });
+      });
+    }
+  </script>
+</body>
+</html>
+
+<!-- Nueva Sección: Videos de Nuestras Gelatinas -->
+<section class="videos-section" style="padding: var(--space-3xl) var(--space-lg); background: linear-gradient(135deg, #FFCDD2 0%, #E1BEE7 100%);">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Videos de Nuestras Creaciones</h2>
+            <p class="section-subtitle">Mira cómo preparamos tus gelatinas favoritas</p>
+        </div>
+        
+        <div class="videos-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-xl); margin-top: var(--space-2xl);">
+            
+            <!-- Video 1: Honguito -->
+            <div class="video-card" style="background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md);">
+                <div class="video-wrapper" style="position: relative; height: 250px; background: #000;">
+                    <video class="video-player" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="/static/videos/honguito-video.mp4" type="video/mp4">
+                        <img src="/static/images/gelatinas/bomba-honguito.png" alt="Bomba & Honguito">
+                    </video>
+                    <div class="video-badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--gelatin-pink); color: var(--white); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700;">
+                        Popular
+                    </div>
+                </div>
+                <div class="video-content" style="padding: var(--space-lg);">
+                    <h3 style="font-family: var(--font-display); color: var(--gelatin-purple); margin-bottom: var(--space-sm);">Bomba & Honguito</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: var(--space-md);">Mezcla de piña y coco con diseños de bombas y hongos power-up</p>
+                    <button class="btn btn-primary" onclick="addToOrder(event, 'Bomba & Honguito')" style="width: 100%;">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video 2: Flores -->
+            <div class="video-card" style="background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md);">
+                <div class="video-wrapper" style="position: relative; height: 250px; background: #000;">
+                    <video class="video-player" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="/static/videos/flores-video.mp4" type="video/mp4">
+                        <img src="/static/images/gelatinas/flores-especiales.png" alt="Flores Especiales">
+                    </video>
+                    <div class="video-badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--gelatin-purple); color: var(--white); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700;">
+                        Especial
+                    </div>
+                </div>
+                <div class="video-content" style="padding: var(--space-lg);">
+                    <h3 style="font-family: var(--font-display); color: var(--gelatin-purple); margin-bottom: var(--space-sm);">Flores Especiales</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: var(--space-md);">Diseños florales únicos con capas de sabores frutales</p>
+                    <button class="btn btn-primary" onclick="addToOrder(event, 'Flores Especiales')" style="width: 100%;">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video 3: Piña -->
+            <div class="video-card" style="background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md);">
+                <div class="video-wrapper" style="position: relative; height: 250px; background: #000;">
+                    <video class="video-player" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="/static/videos/piña-video.mp4" type="video/mp4">
+                        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784fbb?w=400&h=300&fit=crop" alt="Piña & Frutos Rojos">
+                    </video>
+                    <div class="video-badge" style="position: absolute; top: 1rem; right: 1rem; background: var(--gelatin-green); color: var(--white); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700;">
+                        Fresco
+                    </div>
+                </div>
+                <div class="video-content" style="padding: var(--space-lg);">
+                    <h3 style="font-family: var(--font-display); color: var(--gelatin-purple); margin-bottom: var(--space-sm);">Piña & Frutos Rojos</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: var(--space-md);">Deliciosa combinación de piña natural con frambuesa, fresa y arándanos</p>
+                    <button class="btn btn-primary" onclick="addToOrder(event, 'Piña & Frutos Rojos')" style="width: 100%;">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+.video-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+</style>

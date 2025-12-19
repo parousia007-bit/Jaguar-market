@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaguar Market | Mercado digital de Chiapas</title>
+    <meta name="description" content="Los mejores negocios de Tuxtla Gutiérrez: pizzerías, taquerías, farmacias y más. Pedidos rápidos por WhatsApp con entrega a domicilio.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           🎨 SISTEMA DE DISEÑO PROFESIONAL
+           ============================================ */
+        :root {
+            /* Colores Primarios - Identidad Chiapaneca Moderna */
+            --primary: #FF6B35;          /* Naranja Tuxtla (cálido, energético) */
+            --primary-dark: #E5552D;
+            --primary-light: #FF8555;
+            
+            /* Colores Secundarios */
+            --secondary: #004E89;        /* Azul Confianza */
+            --secondary-dark: #003D6B;
+            --secondary-light: #1A6BAA;
+            
+            /* Colores de Acción */
+            --success: #00B894;          /* Verde Delivery */
+            --warning: #FDCB6E;
+            --danger: #FF7675;
+            --info: #74B9FF;
+            
+            /* Neutrales - Jerarquía Visual Clara */
+            --dark: #1A1A2E;            /* Negro suave para texto */
+            --gray-900: #2D3436;
+            --gray-700: #636E72;
+            --gray-500: #B2BEC3;
+            --gray-300: #DFE6E9;
+            --gray-100: #F5F6FA;
+            --white: #FFFFFF;
+            
+            /* Backgrounds */
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-accent: #FFF5F0;
+            
+            /* Sombras - Profundidad Profesional */
+            --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.12);
+            --shadow-xl: 0 12px 24px rgba(0,0,0,0.16);
+            
+            /* Bordes */
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+            
+            /* Espaciado Consistente */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            
+            /* Tipografía */
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-display: 'Segoe UI', system-ui, sans-serif;
+            
+            /* Transiciones */
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 350ms ease;
+        }
+
+        /* ============================================
+           🏗️ RESET Y BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ============================================
+           📱 HEADER - NAVEGACIÓN PRINCIPAL
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-300);
+            z-index: 1000;
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+            color: var(--dark);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            transition: transform var(--transition-fast);
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.75rem;
+        }
+
+        .logo-text {
+            color: var(--dark);
+        }
+
+        .logo-dot {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xl);
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width var(--transition-base);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* ============================================
+           🎯 HERO - SECCIÓN PRINCIPAL
+           ============================================ */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: calc(72px + 4rem) var(--space-lg) 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, 20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            font-family: var(--font-display);
+        }
+
+        .hero-title .highlight {
+            color: var(--white);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0.1em;
+            left: 0;
+            width: 100%;
+            height: 0.15em;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin-bottom: var(--space-2xl);
+        }
+
+        /* Buscador Hero */
+        .search-hero {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-sm);
+            box-shadow: var(--shadow-xl);
+            margin-bottom: var(--space-2xl);
+            max-width: 600px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: 0 var(--space-md);
+        }
+
+        .search-input-wrapper i {
+            color: var(--gray-500);
+            font-size: 1.25rem;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: var(--dark);
+            padding: 1rem 0;
+        }
+
+        .search-input::placeholder {
+            color: var(--gray-500);
+        }
+
+        .search-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+        }
+
+        .search-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            gap: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .stat-content strong {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.125rem;
+        }
+
+        .stat-content span {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        /* ============================================
+           🏪 CATEGORÍAS DESTACADAS
+           ============================================ */
+        .categories-section {
+            padding: var(--space-3xl) var(--space-lg);
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: var(--space-md);
+            font-family: var(--font-display);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: var(--space-lg);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            border: 2px solid transparent;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .category-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 1.75rem;
+            color: var(--white);
+            transition: transform var(--transition-base);
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .category-name {
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .category-count {
+            color: var(--gray-700);
+            font-size: 0.875rem;
+        }
+
+        /* ============================================
+           🍕 NEGOCIOS DESTACADOS
+           ============================================ */
+        .featured-section {
+            padding: var(--space-3xl) var(--space-lg);
+            background: var(--bg-primary);
+        }
+
+        .businesses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .business-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: 1px solid var(--gray-300);
+        }
+
+        .business-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .business-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: var(--gray-300);
+        }
+
+        .business-content {
+            padding: var(--space-lg);
+        }
+
+        .business-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+
+        .business-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            color: var(--dark);
+        }
+
+        .business-category {
+            color: var(--gray-700);
+            font-size: 0.875rem;
+        }
+
+        .business-badge {
+            background: var(--success);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .business-meta {
+            display: flex;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--gray-300);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--gray-700);
+            font-size: 0.875rem;
+        }
+
+        .meta-item i {
+            color: var(--primary);
+        }
+
+        .business-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .tag {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+        }
+
+        .business-footer {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .btn-business {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .btn-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            background: var(--gray-100);
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .btn-icon:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* ============================================
+           📱 CÓMO FUNCIONA
+           ============================================ */
+        .how-it-works {
+            padding: var(--space-3xl) var(--space-lg);
+            background: var(--bg-accent);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: calc(50% + 40px);
+            width: calc(100% - 80px);
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), transparent);
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-sm);
+            color: var(--dark);
+        }
+
+        .step p {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           📞 CTA SECTION
+           ============================================ */
+        .cta-section {
+            padding: var(--space-3xl) var(--space-lg);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--secondary);
+        }
+
+        .btn-white:hover {
+            background: var(--gray-100);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--secondary);
+        }
+
+        /* ============================================
+           🦶 FOOTER
+           ============================================ */
+        .footer {
+            background: var(--dark);
+            color: var(--gray-300);
+            padding: var(--space-3xl) var(--space-lg) var(--space-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--gray-700);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all var(--transition-base);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           📱 RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero {
+                padding: calc(72px + 2rem) var(--space-md) 2rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .hero-stats {
+                gap: var(--space-lg);
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .businesses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .step::after {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Tuxtla Gutiérrez, Chiapas
+                </div>
+                
+                <h1 class="hero-title">
+                    Los mejores negocios de <span class="highlight">Tuxtla</span> a un click
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Descubre pizzerías, taquerías, farmacias y más. Pedidos rápidos por WhatsApp con entrega directo a tu puerta.
+                </p>
+
+                <div class="search-hero">
+                    <form class="search-form" onsubmit="handleSearch(event)">
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input 
+                                type="text" 
+                                class="search-input" 
+                                placeholder="Busca pizzas, tacos, medicinas..."
+                                id="heroSearch"
+                            >
+                        </div>
+                        <button type="submit" class="search-btn">
+                            Buscar
+                        </button>
+                    </form>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="stat-content">
+                            <strong>150+</strong>
+                            <span>Negocios Locales</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-content">
+                            <strong>5,000+</strong>
+                            <span>Entregas Realizadas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <strong>4.8/5</strong>
+                            <span>Satisfacción</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CATEGORÍAS
+         ============================================ -->
+    <section id="categorias" class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Qué se te antoja hoy?</h2>
+                <p class="section-subtitle">Explora nuestras categorías más populares</p>
+            </div>
+
+            <div class="categories -grid">
+      <a href="/pizzerias" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <div class="category-name">Pizzerías</div>
+                    <div class="category-count">12 negocios</div>
+                </a>
+
+                <a href="/taquerias" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-pepper-hot"></i>
+                    </div>
+                    <div class="category-name">Taquerías</div>
+                    <div class="category-count">18 negocios</div>
+                </a>
+
+                <a href="/farmacias" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="category-name">Farmacias</div>
+                    <div class="category-count">8 negocios</div>
+                </a>
+
+                <a href="/restaurantes" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="category-name">Restaurantes</div>
+                    <div class="category-count">25 negocios</div>
+                </a>
+
+                <a href="/cafeterias" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="category-name">Cafeterías</div>
+                    <div class="category-count">15 negocios</div>
+                </a>
+
+                <a href="/supermercados" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="category-name">Supermercados</div>
+                    <div class="category-count">6 negocios</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         NEGOCIOS DESTACADOS
+         ============================================ -->
+    <section id="negocios" class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Negocios Destacados</h2>
+                <p class="section-subtitle">Los más populares de Tuxtla Gutiérrez</p>
+            </div>
+
+            <div class="businesses-grid">
+                <!-- Pizzería Tavolos (REAL) -->
+                <div class="business-card" onclick="window.location.href='/pizzerias/tavolos'">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop" alt="Pizzería Tavolos" class="business-image">
+                    <div class="business-content">
+                        <div class="business-header">
+                            <div class="business-info">
+                                <h3>Pizzería y Restaurante Tavolos</h3>
+                                <div class="business-category">
+                                    <i class="fas fa-pizza-slice"></i> Pizzería
+                                </div>
+                            </div>
+                            <span class="business-badge">Abierto</span>
+                        </div>
+
+                        <div class="business-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>30-45 min</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$90-$425</span>
+                            </div>
+                        </div>
+
+                        <div class="business-tags">
+                            <span class="tag">Pizza Suprema</span>
+                            <span class="tag">Hawaiana</span>
+                            <span class="tag">Pepperoni</span>
+                        </div>
+
+                        <div class="business-footer">
+                            <a href="/pizzerias/tavolos" class="btn btn-primary btn-business">
+                                <i class="fas fa-eye"></i> Ver Menú
+                            </a>
+                            <button class="btn-icon" onclick="event.stopPropagation(); shareWhatsApp('Tavolos', '9619702540')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Taquería El Fogón -->
+<!-- Gelée Dely -->
+<div class="business-card" onclick="window.location.href='/postres/gelee-dely'">
+    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop" alt="Gelée Dely" class="business-image">
+    <div class="business-content">
+        <div class="business-header">
+            <div class="business-info">
+                <h3>Gelée Dely</h3>
+                <div class="business-category">
+                    <i class="fas fa-ice-cream"></i> Gelatinas Artesanales
+                </div>
+            </div>
+            <span class="business-badge">Abierto</span>
+        </div>
+        <div class="business-meta">
+            <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>4.9</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span>24-48h</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$30-$135</span>
+            </div>
+        </div>
+        <div class="business-tags">
+            <span class="tag">Personalizadas</span>
+            <span class="tag">Temáticas</span>
+            <span class="tag">Eventos</span>
+        </div>
+        <div class="business-footer">
+            <a href="/postres/gelee-dely" class="btn btn-primary btn-business">
+                <i class="fas fa-eye"></i> Ver Productos
+            </a>
+            <button class="btn-icon" onclick="event.stopPropagation(); window.open('https://wa.me/529619702540?text=Hola! Me interesa Gelée Dely', '_blank')">
+                <i class="fab fa-whatsapp"></i>
+            </button>
+        </div>
+    </div>
+</div>
+                <div class="business-card">
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&h=300&fit=crop" alt="Taquería El Fogón" class="business-image">
+                    <div class="business-content">
+                        <div class="business-header">
+                            <div class="business-info">
+                                <h3>Taquería El Fogón</h3>
+                                <div class="business-category">
+                                    <i class="fas fa-pepper-hot"></i> Taquería
+                                </div>
+
+                <!-- ===== SERVICIOS PROFESIONALES ===== -->
+                <div class="business-card" onclick="window.location.href='/servicios/dental'">
+                                <h3>Smile Dental Center</h3>
+                                <div class="business-category">
+                                    <i class="fas fa-tooth"></i> Consultorio Dental
+                                </div>
+                            </div>
+                            <span class="business-badge">Abierto</span>
+                        </div>
+                        
+                        <!-- business-meta (igual que Gelée Dely) -->
+                        <div class="business-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Cita previa</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$200-$1500</span>
+                            </div>
+                        </div>
+                        
+                        <!-- business-tags (igual que Gelée Dely) -->
+                        <div class="business-tags">
+                            <span class="tag">Limpieza dental</span>
+                            <span class="tag">Blanqueamiento</span>
+                            <span class="tag">Ortodoncia</span>
+                        </div>
+                        
+                        <!-- business-footer CON BOTONES (igual que Gelée Dely) -->
+                        <div class="business-footer">
+                            <a href="/servicios/dental" class="btn btn-primary btn-business">
+                                <i class="fas fa-eye"></i> Ver Servicios
+                            </a>
+                            <button class="btn-icon" onclick="event.stopPropagation(); window.open('https://wa.me/5219611010657?text=Hola! Me interesa Smile Dental Center', '_blank')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="business-card" onclick="window.location.href='/servicios/laboratorio'">
+                                <h3>BioLab Análisis Clínicos</h3>
+                                <div class="business-category">
+                                    <i class="fas fa-flask"></i> Laboratorio
+                                </div>
+                            </div>
+                            <span class="business-badge">Abierto</span>
+                        </div>
+                        
+                        <!-- business-meta -->
+                        <div class="business-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>24-48h resultados</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$150-$800</span>
+                            </div>
+                        </div>
+                        
+                        <!-- business-tags -->
+                        <div class="business-tags">
+                            <span class="tag">Análisis de sangre</span>
+                            <span class="tag">Pruebas COVID</span>
+                            <span class="tag">Check-up anual</span>
+                        </div>
+                        
+                        <!-- business-footer CON BOTONES -->
+                        <div class="business-footer">
+                            <a href="/servicios/laboratorio" class="btn btn-primary btn-business">
+                                <i class="fas fa-eye"></i> Ver Estudios
+                            </a>
+                            <button class="btn-icon" onclick="event.stopPropagation(); window.open('https://wa.me/5219611010657?text=Hola! Me interesa BioLab Análisis Clínicos', '_blank')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                            </div>
+                            <span class="business-badge">Abierto</span>
+                        </div>
+
+                        <div class="business-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>20-30 min</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$50-$150</span>
+                            </div>
+                        </div>
+
+                        <div class="business-tags">
+                            <span class="tag">Tacos al Pastor</span>
+                            <span class="tag">Gringas</span>
+                            <span class="tag">Quesadillas</span>
+                        </div>
+
+                        <div class="business-footer">
+                            <a href="/taquerias/el-fogon" class="btn btn-primary btn-business">
+                                <i class="fas fa-eye"></i> Ver Menú
+                            </a>
+                            <button class="btn-icon" onclick="shareWhatsApp('El Fogón', '9611234567')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmacia San Rafael -->
+                <div class="business-card">
+                    <img src="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=400&h=300&fit=crop" alt="Farmacia San Rafael" class="business-image">
+                    <div class="business-content">
+                        <div class="business-header">
+                            <div class="business-info">
+                                <h3>Farmacia San Rafael</h3>
+                                <div class="business-category">
+                                    <i class="fas fa-pills"></i> Farmacia
+                                </div>
+                            </div>
+                            <span class="business-badge" style="background: var(--info);">24 horas</span>
+                        </div>
+
+                        <div class="business-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>15-25 min</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Express</span>
+                            </div>
+                        </div>
+
+                        <div class="business-tags">
+                            <span class="tag">Medicamentos</span>
+                            <span class="tag">Genéricos</span>
+                            <span class="tag">Vitaminas</span>
+                        </div>
+
+                        <div class="business-footer">
+                            <a href="/farmacias/san-rafael" class="btn btn-primary btn-business">
+                                <i class="fas fa-eye"></i> Ver Catálogo
+                            </a>
+                            <button class="btn-icon" onclick="shareWhatsApp('Farmacia San Rafael', '9617654321')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Café Chiapaneco -->
+                <div class="business-card">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=300&fit=crop" alt="Café Chiapaneco" class="business-image">
+                    <div class="business-content">
+                        <div class="business-header">
+                            <div class="business-info">
+                                <h3>Café Chiapaneco</h3>
+                                <div class="business-category">
+                                    <i class="fas fa-coffee"></i> Cafetería
+                                </div>
+                            </div>
+                            <span class="business-badge">Abierto</span>
+                        </div>
+
+                        <div class="business-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>10-20 min</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$40-$120</span>
+                            </div>
+                        </div>
+
+                        <div class="business-tags">
+                            <span class="tag">Café de Altura</span>
+                            <span class="tag">Repostería</span>
+                            <span class="tag">Orgánico</span>
+                        </div>
+
+                        <div class="business-footer">
+                            <a href="/cafeterias/chiapaneco" class="btn btn-primary btn-business">
+                                <i class="fas fa-eye"></i> Ver Menú
+                            </a>
+                            <button class="btn-icon" onclick="shareWhatsApp('Café Chiapaneco', '9618765432')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pozolería La Tradición -->
+                <div class="business-card">
+                    <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=400&h=300&fit=crop" alt="Pozolería La Tradición" class="business-image">
+                    <div class="business-content">
+                        <div class="business-header">
+                            <div class="business-info">
+                                <h3>Pozolería La Tradición</h3>
+                                <div class="business-category">
+                                    <i class="fas fa-utensils"></i> Restaurante
+                                </div>
+                            </div>
+                            <span class="business-badge">Abierto</span>
+                        </div>
+
+                        <div class="business-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>25-40 min</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$80-$180</span>
+                            </div>
+                        </div>
+
+                        <div class="business-tags">
+                            <span class="tag">Pozole Blanco</span>
+                            <span class="tag">Tostadas</span>
+                            <span class="tag">Tradicional</span>
+                        </div>
+
+                        <div class="business-footer">
+                            <a href="/restaurantes/la-tradicion" class="btn btn-primary btn-business">
+                                <i class="fas fa-eye"></i> Ver Menú
+                            </a>
+                            <button class="btn-icon" onclick="shareWhatsApp('La Tradición', '9619876543')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panadería Doña Rosa -->
+                <div class="business-card">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Panadería Doña Rosa" class="business-image">
+                    <div class="business-content">
+                        <div class="business-header">
+                            <div class="business-info">
+                                <h3>Panadería Doña Rosa</h3>
+                                <div class="business-category">
+                                    <i class="fas fa-bread-slice"></i> Panadería
+                                </div>
+                            </div>
+                            <span class="business-badge">Abierto</span>
+                        </div>
+
+                        <div class="business-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>15-25 min</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$30-$150</span>
+                            </div>
+                        </div>
+
+                        <div class="business-tags">
+                            <span class="tag">Pan Artesanal</span>
+                            <span class="tag">Conchas</span>
+                            <span class="tag">Pasteles</span>
+                        </div>
+
+                        <div class="business-footer">
+                            <a href="/panaderias/dona-rosa" class="btn btn-primary btn-business">
+                                <i class="fas fa-eye"></i> Ver Productos
+                            </a>
+                            <button class="btn-icon" onclick="shareWhatsApp('Doña Rosa', '9612345678')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-2xl);">
+                <a href="/negocios" class="btn btn-secondary">
+                    Ver Todos los Negocios
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CÓMO FUNCIONA
+         ============================================ -->
+    <section id="como-funciona" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Cómo Funciona?</h2>
+                <p class="section-subtitle">Pedir es más fácil que nunca</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Busca tu Negocio</h3>
+                    <p>Explora cientos de negocios locales: pizzerías, taquerías, farmacias y más.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Elige tu Pedido</h3>
+                    <p>Selecciona tus productos favoritos y personaliza tu orden como quieras.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Pide por WhatsApp</h3>
+                    <p>Confirma tu pedido directamente por WhatsApp con el negocio. Rápido y sin complicaciones.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Recibe en tu Puerta</h3>
+                    <p>Tu pedido llega fresco y rápido a donde estés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA NEGOCIOS
+         ============================================ -->
+    <section id="unirme" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Tienes un Negocio???</h2>
+                <p>
+                    Únete a Jaguar Market y lleva tu negocio al siguiente nivel. 
+                    Sistema de pedidos WhatsApp, delivery opcional y más clientes cada día.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/529619702540?text=Hola%20Jaguar%20Market,%20quiero%20unir%20mi%20negocio" target="_blank" class="btn btn-white">
+                        <i class="fas fa-rocket"></i>
+                        Unir Mi Negocio
+                    </a>
+                    <a href="https://wa.me/529619702540?text=Hola, quiero más información sobre Jaguar Market para mi negocio" class="btn btn-outline" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Hablar con Asesor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Jaguar Market</h4>
+                    <p>La plataforma que te conecta con tus negocios favoritos.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Para Clientes</h4>
+                    <ul class="footer-links">
+                        <li><a href="#categorias">Explorar Categorías</a></li>
+                        <li><a href="#negocios">Negocios Destacados</a></li>
+                        <li><a href="/como-pedir">Cómo Pedir</a></li>
+                        <li><a href="/preguntas">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Para Negocios</h4>
+                    <ul class="footer-links">
+                        <li><a href="/negocios/registrar">Registrar Negocio</a></li>
+                        <li><a href="/negocios/beneficios">Beneficios</a></li>
+                        <li><a href="/negocios/precios">Planes y Precios</a></li>
+                        <li><a href="/negocios/soporte">Soporte</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Tuxtla Gutiérrez, Chiapas</li>
+                        <li><i class="fas fa-phone"></i> (961) 337-3971</li>
+                        <li><i class="fas fa-envelope"></i> jaguarmarkett@gmail.com</li>
+                        <li><i class="fab fa-whatsapp"></i> WhatsApp: 961 337 3971</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jaguar Market. Hecho con <i class="fas fa-heart" style="color: var(--primary);"></i> en Tuxtla Gutiérrez.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // ===================================
+        // HEADER SCROLL BEHAVIOR
+        // ===================================
+        let lastScroll = 0;
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                header.classList.remove('scrolled');
+                header.classList.remove('hidden');
+                return;
+            }
+
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // ===================================
+        // SEARCH FUNCTIONALITY
+        // ===================================
+        function handleSearch(event) {
+            event.preventDefault();
+            const query = document.getElementById('heroSearch').value.trim();
+            
+            if (query) {
+                window.location.href = `/buscar?q=${encodeURIComponent(query)}`;
+            } else {
+                alert('Por favor ingresa algo para buscar');
+            }
+        }
+
+        // ===================================
+        // WHATSAPP SHARE
+        // ===================================
+        function shareWhatsApp(businessName, phone) {
+            const message = `Hola! Me interesa hacer un pedido en ${businessName} desde Jaguar Market`;
+            const url = `https://wa.me/52${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // ===================================
+        // SMOOTH SCROLL
+        // ===================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===================================
+        // ANALYTICS (placeholder)
+        // ===================================
+        function trackEvent(category, action, label) {
+            console.log(`Event: ${category} - ${action} - ${label}`);
+            // Aquí integrarías Google Analytics o tu sistema de analytics
+        }
+
+        // Track clicks en negocios
+        document.querySelectorAll('.business-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const businessName = card.querySelector('h3').textContent;
+                trackEvent('Business', 'Click', businessName);
+            });
+        });
+
+        // Track búsquedas
+        document.querySelector('.search-form').addEventListener('submit', () => {
+            const query = document.getElementById('heroSearch').value;
+            trackEvent('Search', 'Submit', query);
+        });
+
+        // ===================================
+        // PERFORMANCE MONITORING
+        // ===================================
+        window.addEventListener('load', () => {
+            if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+                console.log('Page reloaded');
+            }
+            
+            // Measure page load time
+            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+            console.log(`Page loaded in ${loadTime}ms`);
+        });
+    </script>
+</body>
+</html>

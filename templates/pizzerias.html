@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzerías - Jaguar Market</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+            margin: 0; 
+            min-height: 100vh;
+            color: #333;
+        }
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-logo {
+            color: #FF6B6B;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        .hero {
+            text-align: center;
+            color: white;
+            padding: 3rem 2rem;
+        }
+        .pizzerias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .pizzeria-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .pizzeria-card:hover {
+            transform: translateY(-5px);
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #FF6B6B;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .btn-secondary {
+            background: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="nav-logo">🏪 Jaguar Market</a>
+        <div>🍕 Pizzerías</div>
+    </nav>
+
+    <div class="hero">
+        <h1>¡Bienvenido a las Pizzerías! 🍕</h1>
+        <p>Elige una pizzería o crea tu propia pizza</p>
+    </div>
+
+    <div class="pizzerias-grid">
+        <div class="pizzeria-card">
+            <h3>Pizzería Don José</h3>
+            <p>⭐ 4.5 | ⏱️ 25-35 min</p>
+            <p>Pizzas tradicionales y familiares</p>
+            <a href="#" class="btn">Ver Menú</a>
+        </div>
+
+        <div class="pizzeria-card">
+            <h3>Pizza Italiana</h3>
+            <p>⭐ 4.7 | ⏱️ 30-40 min</p>
+            <p>Auténtica pizza estilo italiano</p>
+            <a href="#" class="btn">Ver Menú</a>
+        </div>
+
+        <div class="pizzeria-card">
+            <h3>Crear Pizza Personalizada</h3>
+            <p>⭐ Tu elección | ⏱️ 20-30 min</p>
+            <p>Arma tu pizza con tus ingredientes favoritos</p>
+            <a href="/pizzerias/builder" class="btn btn-secondary">Comenzar →</a>
+        </div>
+    </div>
+
+        <!-- ===== OTROS SERVICIOS ===== -->
+        <div class="other-services">
+            <h3>🩺 También podría interesarte:</h3>
+            <div class="services-links">
+                <a href="/servicios/dental" class="service-link">
+                    <span class="service-icon">🦷</span>
+                    <span>Consultorio Dental</span>
+                </a>
+                <a href="/servicios/laboratorio" class="service-link">
+                    <span class="service-icon">🔬</span>
+                    <span>Laboratorio de Análisis</span>
+                </a>
+            </div>
+        </div>
+</body>
+</html>
