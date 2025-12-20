@@ -1,0 +1,32 @@
+{
+  "tiers": {
+    "bronze": {
+      "name": "Bronce",
+      "color": "#CD7F32",
+      "icon": "fa-medal",
+      "autoGenerate": true,
+      "features": ["Sitio básico", "Contacto WhatsApp", "Horarios"]
+    },
+    "silver": {
+      "name": "Plata",
+      "color": "#C0C0C0",
+      "icon": "fa-award",
+      "autoGenerate": true,
+      "features": ["Todo Bronce", "Galería de fotos", "Menú digital"]
+    },
+    "gold": {
+      "name": "Oro",
+      "color": "#FFD700",
+      "icon": "fa-crown",
+      "autoGenerate": false,
+      "features": ["Diseño personalizado", "No se modifica"]
+    },
+    "diamond": {
+      "name": "Diamante",
+      "color": "#B9F2FF",
+      "icon": "fa-gem",
+      "autoGenerate": false,
+      "features": ["Sitio premium", "Actualizaciones manuales"]
+    }
+  }
+}

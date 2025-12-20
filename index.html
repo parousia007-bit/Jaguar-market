@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#FF6B35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="Jaguar Market - Marketplace local con negocios de calidad en Tuxtla Gutiérrez">
+    <title>Jaguar Market - Tu Marketplace Local</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="marketplace-app">
+    
+    <!-- HEADER PRINCIPAL -->
+    <header class="marketplace-header">
+        <div class="header-top">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Jaguar Market</h1>
+                    <p class="location-tag">
+                        <i class="fas fa-map-marker-alt"></i> Tuxtla Gutiérrez
+                    </p>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="btn-icon" onclick="toggleSearch()" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="btn-icon" onclick="showRegistration()" aria-label="Registrar negocio">
+                    <i class="fas fa-plus-circle"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="header-subtitle">
+            <h2>¿Qué se te antoja hoy?</h2>
+            <p>Explora nuestras categorías más populares</p>
+        </div>
+        
+        <!-- BUSCADOR EXPANDIBLE -->
+        <div class="search-container" id="searchContainer" style="display: none;">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="search" 
+                       id="searchInput" 
+                       placeholder="Buscar negocios, comida, servicios..." 
+                       class="search-input"
+                       oninput="handleSearch(this.value)">
+                <button class="btn-clear" onclick="clearSearch()" style="display: none;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+        
+        <!-- FILTROS DE CATEGORÍA -->
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all" onclick="filterByCategory('all')">
+                <span class="filter-icon">🏪</span>
+                <span class="filter-label">Todos</span>
+            </button>
+            <button class="filter-btn" data-category="food" onclick="filterByCategory('food')">
+                <span class="filter-icon">🍕</span>
+                <span class="filter-label">Comida</span>
+            </button>
+            <button class="filter-btn" data-category="health" onclick="filterByCategory('health')">
+                <span class="filter-icon">🏥</span>
+                <span class="filter-label">Salud</span>
+            </button>
+            <button class="filter-btn" data-category="services" onclick="filterByCategory('services')">
+                <span class="filter-icon">🛠️</span>
+                <span class="filter-label">Servicios</span>
+            </button>
+            <button class="filter-btn" data-category="desserts" onclick="filterByCategory('desserts')">
+                <span class="filter-icon">🍰</span>
+                <span class="filter-label">Postres</span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="marketplace-main">
+        
+        <!-- SECCIÓN: NEGOCIOS DESTACADOS -->
+        <section class="section-featured">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Negocios Destacados
+                </h2>
+                <p class="section-subtitle">Los más populares de Tuxtla Gutiérrez</p>
+            </div>
+            <div class="business-grid" id="featuredGrid"></div>
+        </section>
+        
+        <!-- SECCIÓN: COMIDA Y RESTAURANTES -->
+        <section class="category-section" data-category="food" id="foodSection">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-utensils"></i>
+                    Comida y Restaurantes
+                </h2>
+            </div>
+            <div class="business-grid" id="foodGrid"></div>
+        </section>
+        
+        <!-- SECCIÓN: SALUD Y BIENESTAR -->
+        <section class="category-section" data-category="health" id="healthSection">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-heartbeat"></i>
+                    Salud y Bienestar
+                </h2>
+            </div>
+            <div class="business-grid" id="healthGrid"></div>
+        </section>
+        
+        <!-- SECCIÓN: POSTRES Y GELATINAS -->
+        <section class="category-section" data-category="desserts" id="dessertsSection">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-ice-cream"></i>
+                    Postres y Dulces
+                </h2>
+            </div>
+            <div class="business-grid" id="dessertsGrid"></div>
+        </section>
+        
+        <!-- SECCIÓN: NUEVOS NEGOCIOS -->
+        <section class="section-new">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-plus-circle"></i>
+                    Negocios Recientes
+                </h2>
+                <p class="section-subtitle">Recién agregados a la plataforma</p>
+            </div>
+            <div class="business-grid" id="newGrid"></div>
+        </section>
+        
+    </main>
+    
+    <!-- FOOTER CON ESTADÍSTICAS -->
+    <footer class="marketplace-footer">
+        <div class="footer-stats">
+            <div class="stat-card">
+                <div class="stat-icon">🏪</div>
+                <div class="stat-content">
+                    <span class="stat-number" id="businessCount">0</span>
+                    <span class="stat-label">Negocios</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-content">
+                    <span class="stat-number" id="reviewCount">0</span>
+                    <span class="stat-label">Reseñas</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-content">
+                    <span class="stat-number" id="avgRating">0.0</span>
+                    <span class="stat-label">Promedio</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-info">
+            <p class="copyright">© 2024 Jaguar Market - Todos los negocios verificados</p>
+            <div class="footer-links">
+                <a href="#" onclick="showRegistration()">Registrar Negocio</a>
+                <span>•</span>
+                <a href="#about">Acerca de</a>
+                <span>•</span>
+                <a href="#contact">Contacto</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- MODAL DE REGISTRO -->
+    <div id="registrationModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📝 Registra tu Negocio</h3>
+                <button class="btn-close" onclick="closeRegistration()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">
+                    ¿Tienes un negocio local? Únete a Jaguar Market y llega a más clientes.
+                </p>
+                <div class="registration-benefits">
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Registro gratuito</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-users"></i>
+                        <span>Alcance local garantizado</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Sistema de calificaciones</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Contacto directo por WhatsApp</span>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <p>Para registrar tu negocio, contáctanos:</p>
+                    <a href="https://wa.me/5219611010657?text=Hola,%20quiero%20registrar%20mi%20negocio%20en%20Jaguar%20Market" 
+                       class="btn btn-primary btn-whatsapp-large"
+                       target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Contactar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SCRIPTS -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>

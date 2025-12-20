@@ -1,0 +1,26 @@
+{
+  "name": "jaguar-market-pro",
+  "version": "1.0.0",
+  "description": "Marketplace local premium con generación automática de mini sitios",
+  "main": "index.html",
+  "scripts": {
+    "generate": "node generator.js",
+    "generate:all": "node generator.js --all",
+    "generate:single": "node generator.js --business",
+    "serve": "npx serve .",
+    "dev": "concurrently \"npx serve .\" \"node generator.js --watch\""
+  },
+  "keywords": [
+    "marketplace",
+    "local",
+    "ecommerce",
+    "restaurants",
+    "services"
+  ],
+  "author": "Jaguar Market Team",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}

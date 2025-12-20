@@ -1,0 +1,17 @@
+{
+  "name": "jaguar-market-pro",
+  "version": "1.0.0",
+  "description": "Marketplace local premium con sistema de niveles",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "generate:all": "node generator-smart.js",
+    "generate:bronze": "node generate-bronze.js",
+    "generate:silver": "node generate-silver.js",
+    "tier:check": "node scripts/check-tiers.js",
+    "deploy": "echo '✅ Proyecto listo para deploy'"
+  },
+  "keywords": ["marketplace", "local", "ecommerce"],
+  "author": "Jaguar Market Team",
+  "license": "MIT"
+}

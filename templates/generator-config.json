@@ -1,0 +1,19 @@
+{
+  "templatePath": "./mini-site-template.html",
+  "outputDir": "./mini-sites",
+  "cssTemplate": "./templates/business-styles.css",
+  "autoUpdateDataJs": true,
+  "defaultImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=480&fit=crop",
+  "defaultCoordinates": {
+    "lat": 16.7516,
+    "lng": -93.1130
+  },
+  "business": {
+    "categories": {
+      "food": "Restaurantes y Comida",
+      "health": "Salud y Bienestar",
+      "services": "Servicios",
+      "desserts": "Postres y Dulces"
+    }
+  }
+}
