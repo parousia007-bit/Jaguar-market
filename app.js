@@ -7,7 +7,9 @@ const AppState = {
     currentCategory: 'all',
     searchQuery: '',
     favorites: new Set(),
-    currentBusiness: null
+    currentBusiness: null,
+    // Cargar configuración desde config.js (si existe) o usar valor por defecto
+    allowDuplicates: (typeof CONFIG !== 'undefined') ? CONFIG.allowDuplicates : false
 };
 
 // ============================================
@@ -42,28 +44,49 @@ function renderFeaturedBusinesses() {
     const container = document.getElementById('featuredGrid');
     const featured = getFeaturedBusinesses();
     
-    container.innerHTML = featured.map((business, index) => 
-        createBusinessCard(business, index)
-    ).join('');
+    if (featured.length > 0) {
+        container.innerHTML = featured.map((business, index) => 
+            createBusinessCard(business, index)
+        ).join('');
+    } else {
+        // Si no hay destacados, ocultar la sección
+        const section = container.closest('section');
+        if (section) section.style.display = 'none';
+    }
 }
 
 function renderBusinessesByCategory() {
     const categories = ['food', 'health', 'desserts'];
     
+    // Solo filtrar duplicados si allowDuplicates es false
+    let shownIds = new Set();
+    if (!AppState.allowDuplicates) {
+        const featuredIds = new Set(getFeaturedBusinesses().map(b => b.id));
+        const recentIds = new Set(getRecentBusinesses(4).map(b => b.id));
+        shownIds = new Set([...featuredIds, ...recentIds]);
+    }
+    
     categories.forEach(category => {
         const container = document.getElementById(`${category}Grid`);
-        const businesses = getBusinessesByCategory(category);
+        const allBusinesses = getBusinessesByCategory(category);
+        
+        // FILTRAR negocios según configuración
+        const businesses = AppState.allowDuplicates 
+            ? allBusinesses 
+            : allBusinesses.filter(b => !shownIds.has(b.id));
         
         if (businesses.length > 0) {
             container.innerHTML = businesses.map((business, index) => 
                 createBusinessCard(business, index)
             ).join('');
+            
+            // Asegurar que la sección sea visible
+            const section = container.closest('section');
+            if (section) section.style.display = 'block';
         } else {
-            container.innerHTML = `
-                <div class="empty-state">
-                    <p>No hay negocios en esta categoría todavía</p>
-                </div>
-            `;
+            // Si no hay negocios, ocultar la sección
+            const section = container.closest('section');
+            if (section) section.style.display = 'none';
         }
     });
 }
@@ -72,9 +95,15 @@ function renderRecentBusinesses() {
     const container = document.getElementById('newGrid');
     const recent = getRecentBusinesses(4);
     
-    container.innerHTML = recent.map((business, index) => 
-        createBusinessCard(business, index)
-    ).join('');
+    if (recent.length > 0) {
+        container.innerHTML = recent.map((business, index) => 
+            createBusinessCard(business, index)
+        ).join('');
+    } else {
+        // Si no hay recientes, ocultar la sección
+        const section = container.closest('section');
+        if (section) section.style.display = 'none';
+    }
 }
 
 // ============================================
@@ -186,21 +215,29 @@ function createBusinessCard(business, index) {
                 </div>
                 
                 <!-- FOOTER CON ACCIONES -->
+                <!-- FOOTER CON ACCIONES -->
                 <div class="business-footer">
                     ${actionButton}
-                    
+
                     <!-- WhatsApp -->
                     <button class="btn-icon btn-whatsapp"
                             onclick="openWhatsApp('${business.contact.whatsapp}', '${business.name}')"
                             aria-label="Contactar por WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </button>
-                    
+
                     <!-- Favorito -->
                     <button class="btn-icon btn-favorite ${isFavorite ? 'active' : ''}"
                             onclick="toggleFavorite('${business.id}')"
                             aria-label="Agregar a favoritos">
                         <i class="${isFavorite ? 'fas' : 'far'} fa-heart"></i>
+                    </button>
+
+                    <!-- Calificar -->
+                    <button class="btn-icon btn-rate"
+                            onclick="showRatingModal('${business.id}', '${business.name}')"
+                            aria-label="Calificar negocio">
+                        <i class="fas fa-star"></i>
                     </button>
                 </div>
                 

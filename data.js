@@ -123,8 +123,8 @@ const BUSINESSES = [
         tags: ['Medicamentos', 'Genéricos', 'Vitaminas', 'Suplementos', 'Emergencias'],
         
         contact: {
-            phone: '+5219611010657',
-            whatsapp: '+5219611010657',
+            phone: '+5219619702540',
+            whatsapp: '+5219619702540',
             website: null
         },
         
@@ -177,8 +177,8 @@ const BUSINESSES = [
         tags: ['Ortodoncia', 'Limpieza', 'Blanqueamiento', 'Extracciones', 'Estética Dental'],
         
         contact: {
-            phone: '+5219611010657',
-            whatsapp: '+5219611010657',
+            phone: '+5219619702540',
+            whatsapp: '+5219619702540',
             website: null
         },
         
@@ -231,8 +231,8 @@ const BUSINESSES = [
         tags: ['Análisis Clínicos', 'Química Sanguínea', 'Hormonales', 'A domicilio', 'Resultados Rápidos'],
         
         contact: {
-            phone: '+5219611010657',
-            whatsapp: '+5219611010657',
+            phone: '+5219619702540',
+            whatsapp: '+5219619702540',
             website: null
         },
         
@@ -288,8 +288,8 @@ const BUSINESSES = [
         tags: ['Gelatinas Artesanales', 'Postres', 'Eventos', 'Personalizados', 'Sin Azúcar'],
         
         contact: {
-            phone: '+5219611010657',
-            whatsapp: '+5219611010657',
+            phone: '+5219651295202',
+            whatsapp: '+5219651295202',
             website: null
         },
         

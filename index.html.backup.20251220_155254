@@ -17,7 +17,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="jaguar-admin/ratings/rating-styles.css">
 </head>
 <body class="marketplace-app">
     
@@ -241,7 +240,5 @@
     <script src="data.js"></script>
     <script src="app.js"></script>
     
-    <script src="jaguar-admin/tier-system.js"></script>
-    <script src="jaguar-admin/ratings/rating-system.js"></script>
 </body>
 </html>

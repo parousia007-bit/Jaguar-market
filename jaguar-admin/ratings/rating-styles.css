@@ -1,0 +1,512 @@
+/* 
+ * ESTILOS PARA SISTEMA DE CALIFICACIONES
+ * Jaguar Market Pro
+ */
+
+/* ===== MODAL DE CALIFICACIÓN ===== */
+.rating-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.rating-modal {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header del modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #eaeaea;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 16px 16px 0 0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 28px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Cuerpo del modal */
+.modal-body {
+    padding: 24px;
+}
+
+.stars-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.stars-container p {
+    margin-bottom: 16px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 42px;
+    color: #ddd;
+    transition: all 0.2s ease;
+    padding: 5px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.star-btn:hover {
+    color: #FFD700;
+    transform: scale(1.2);
+}
+
+.star-btn.selected i {
+    color: #FFD700;
+}
+
+.rating-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    min-height: 28px;
+}
+
+/* Sección de comentarios */
+.comment-section,
+.username-section {
+    margin-bottom: 24px;
+}
+
+.comment-section label,
+.username-section label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.comment-section textarea,
+.username-section input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.comment-section textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.comment-section textarea:focus,
+.username-section input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 6px;
+}
+
+/* Footer del modal */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 24px;
+    border-top: 1px solid #eaeaea;
+    background: #f9f9f9;
+    border-radius: 0 0 16px 16px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+/* Mensaje de éxito */
+.success {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.success-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.success p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.success p:first-of-type {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* ===== BOTÓN EN TARJETAS ===== */
+.btn-rate {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
+}
+
+.btn-rate:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 6px 20px rgba(255, 165, 0, 0.4);
+}
+
+.btn-rate i {
+    font-size: 18px;
+}
+
+/* ===== DISPLAY DE RATINGS ===== */
+.rating-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.stars-display {
+    display: flex;
+    gap: 3px;
+}
+
+.stars-display i {
+    color: #FFD700;
+    font-size: 18px;
+}
+
+.rating-score {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.rating-count {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Breakdown de ratings */
+.rating-breakdown {
+    margin-top: 20px;
+}
+
+.breakdown-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.breakdown-stars {
+    width: 80px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.breakdown-bar {
+    flex: 1;
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.breakdown-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.breakdown-count {
+    width: 40px;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Lista de reseñas */
+.reviews-list {
+    margin-top: 30px;
+}
+
+.review-item {
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    background: #fdfdfd;
+    transition: all 0.3s;
+}
+
+.review-item:hover {
+    border-color: #667eea;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.review-date {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.review-stars {
+    color: #FFD700;
+}
+
+.review-comment {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.review-response {
+    background: #f0f7ff;
+    border-left: 4px solid #667eea;
+    padding: 12px 16px;
+    margin-top: 15px;
+    border-radius: 0 8px 8px 0;
+}
+
+.response-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+.response-text {
+    color: #555;
+}
+
+.review-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.helpful-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s;
+}
+
+.helpful-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rating-modal {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .stars {
+        gap: 8px;
+    }
+    
+    .star-btn {
+        font-size: 36px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}
+
+/* Animación para nuevos ratings */
+@keyframes newRating {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.new-rating {
+    animation: newRating 0.5s ease;
+}

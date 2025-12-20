@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Jaguar Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #FF6B35;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gray-50);
+        }
+        
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* SIDEBAR */
+        .sidebar {
+            width: 260px;
+            background: var(--gray-900);
+            color: white;
+            padding: 2rem 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .sidebar-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-header p {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+        
+        .sidebar-nav {
+            padding: 2rem 0;
+        }
+        
+        .nav-item {
+            padding: 0.875rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .nav-item:hover,
+        .nav-item.active {
+            background: rgba(255, 107, 53, 0.1);
+            color: white;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* MAIN CONTENT */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 2rem;
+        }
+        
+        .page-header {
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: var(--gray-800);
+        }
+        
+        /* STATS CARDS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .stat-icon.blue { background: rgba(59, 130, 246, 0.1); color: #3B82F6; }
+        .stat-icon.green { background: rgba(16, 185, 129, 0.1); color: #10B981; }
+        .stat-icon.orange { background: rgba(255, 107, 53, 0.1); color: #FF6B35; }
+        .stat-icon.purple { background: rgba(168, 85, 247, 0.1); color: #A855F7; }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        
+        .stat-label {
+            color: var(--gray-800);
+            font-size: 0.875rem;
+        }
+        
+        .stat-change {
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        
+        .stat-change.up { color: var(--success); }
+        .stat-change.down { color: var(--error); }
+        
+        /* TABLES */
+        .data-table {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .table-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .table-header h3 {
+            font-size: 1.25rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            background: var(--gray-50);
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--gray-800);
+        }
+        
+        td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        tr:hover {
+            background: var(--gray-50);
+        }
+        
+        /* BADGES */
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge.bronze { background: rgba(205, 127, 50, 0.1); color: #CD7F32; }
+        .badge.silver { background: rgba(192, 192, 192, 0.2); color: #808080; }
+        .badge.gold { background: rgba(255, 215, 0, 0.2); color: #DAA520; }
+        .badge.diamond { background: rgba(185, 242, 255, 0.2); color: #00BFFF; }
+        .badge.active { background: rgba(16, 185, 129, 0.1); color: #10B981; }
+        .badge.pending { background: rgba(245, 158, 11, 0.1); color: #F59E0B; }
+        
+        /* BUTTONS */
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--gray-800);
+        }
+        
+        .btn-icon {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 0;
+                overflow: hidden;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="admin-container">
+        
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏪 Jaguar Market</h2>
+                <p>Panel de Administración</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" onclick="showSection('dashboard')">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#negocios" class="nav-item" onclick="showSection('negocios')">
+                    <i class="fas fa-store"></i>
+                    <span>Negocios</span>
+                </a>
+                <a href="#pendientes" class="nav-item" onclick="showSection('pendientes')">
+                    <i class="fas fa-clock"></i>
+                    <span>Pendientes de Aprobación</span>
+                </a>
+                <a href="#ratings" class="nav-item" onclick="showSection('ratings')">
+                    <i class="fas fa-star"></i>
+                    <span>Calificaciones</span>
+                </a>
+                <a href="#flotilla" class="nav-item" onclick="showSection('flotilla')">
+                    <i class="fas fa-motorcycle"></i>
+                    <span>Flotilla</span>
+                </a>
+                <a href="#finanzas" class="nav-item" onclick="showSection('finanzas')">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Finanzas</span>
+                </a>
+                <a href="#configuracion" class="nav-item" onclick="showSection('configuracion')">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+            </nav>
+        </aside>
+        
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            
+            <!-- DASHBOARD SECTION -->
+            <section id="dashboard-section">
+                <div class="page-header">
+                    <h1>Dashboard</h1>
+                    <p>Vista general de Jaguar Market</p>
+                </div>
+                
+                <!-- STATS -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <div class="stat-value" id="totalBusinesses">0</div>
+                                <div class="stat-label">Negocios Activos</div>
+                            </div>
+                            <div class="stat-icon blue">
+                                <i class="fas fa-store"></i>
+                            </div>
+                        </div>
+                        <div class="stat-change up">
+                            <i class="fas fa-arrow-up"></i> +12% este mes
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <div class="stat-value" id="totalRevenue">$0</div>
+                                <div class="stat-label">Ingresos Mensuales</div>
+                            </div>
+                            <div class="stat-icon green">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                        <div class="stat-change up">
+                            <i class="fas fa-arrow-up"></i> +25% este mes
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <div class="stat-value" id="totalDeliveries">0</div>
+                                <div class="stat-label">Entregas Hoy</div>
+                            </div>
+                            <div class="stat-icon orange">
+                                <i class="fas fa-motorcycle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-change up">
+                            <i class="fas fa-arrow-up"></i> +8% vs ayer
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <div class="stat-value" id="avgRating">0.0</div>
+                                <div class="stat-label">Calificación Promedio</div>
+                            </div>
+                            <div class="stat-icon purple">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="stat-change up">
+                            <i class="fas fa-arrow-up"></i> +0.3 este mes
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NEGOCIOS TABLE -->
+                <div class="data-table">
+                    <div class="table-header">
+                        <h3>Negocios Recientes</h3>
+                        <button class="btn btn-primary" onclick="showSection('negocios')">
+                            Ver Todos
+                        </button>
+                    </div>
+                    <table id="businessesTable">
+                        <thead>
+                            <tr>
+                                <th>Negocio</th>
+                                <th>Categoría</th>
+                                <th>Tier</th>
+                                <th>Rating</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Se llena dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+    
+    <script>
+        // Estado global
+        const adminState = {
+            currentSection: 'dashboard',
+            businesses: [],
+            deliveries: [],
+            finances: {}
+        };
+        
+        // Navegar entre secciones
+        function showSection(section) {
+            adminState.currentSection = section;
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.nav-item').classList.add('active');
+            
+            // Por ahora solo dashboard funciona
+            console.log('Navegando a:', section);
+        }
+        
+        // Cargar datos
+        function loadDashboardData() {
+            // Simular carga de datos
+            document.getElementById('totalBusinesses').textContent = '8';
+            document.getElementById('totalRevenue').textContent = '$2,197';
+            document.getElementById('totalDeliveries').textContent = '23';
+            document.getElementById('avgRating').textContent = '4.7';
+            
+            // Cargar tabla
+            loadBusinessesTable();
+        }
+        
+        function loadBusinessesTable() {
+            const tbody = document.querySelector('#businessesTable tbody');
+            const businesses = [
+                { name: 'Pizzería Tavolos', category: 'Comida', tier: 'bronze', rating: 4.8, status: 'active' },
+                { name: 'Farmacia San Rafael', category: 'Salud', tier: 'silver', rating: 4.9, status: 'active' },
+                { name: 'Gelée Dely', category: 'Postres', tier: 'gold', rating: 4.9, status: 'active' },
+                { name: 'Smile Dental', category: 'Salud', tier: 'bronze', rating: 4.7, status: 'active' }
+            ];
+            
+            tbody.innerHTML = businesses.map(b => `
+                <tr>
+                    <td><strong>${b.name}</strong></td>
+                    <td>${b.category}</td>
+                    <td><span class="badge ${b.tier}">${b.tier.toUpperCase()}</span></td>
+                    <td>⭐ ${b.rating}</td>
+                    <td><span class="badge ${b.status}">${b.status === 'active' ? 'Activo' : 'Pendiente'}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-icon" title="Ver detalles">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDashboardData();
+        });
+    </script>
+</body>
+</html>
