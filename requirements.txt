@@ -1,0 +1,2 @@
+# Jaguar Market Pro - Static Website
+# No Python dependencies required for static files
