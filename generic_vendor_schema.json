@@ -1,0 +1,46 @@
+{
+  "id": "nuevo-vendedor",
+  "name": "Nombre del Negocio",
+  "description": "Descripción corta del negocio (ej. 'Comida Mexicana')",
+  "phone": "5215555555555",
+  "categories": [
+    {
+      "id": "categoria-1",
+      "name": "🌮 Nombre Categoría 1",
+      "filter_name": "Filtro 1",
+      "products": [
+        {
+          "name": "Nombre Producto",
+          "description": "Ingredientes o detalles.",
+          "badge": "Popular",
+          "badge_class": "premium",
+          "prices": [
+            {
+              "label": "Pieza",
+              "value": 100
+            }
+          ],
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "categoria-2",
+      "name": "🥤 Nombre Categoría 2",
+      "filter_name": "Filtro 2",
+      "products": [
+        {
+          "name": "Otro Producto",
+          "description": "Detalles...",
+          "prices": [
+            {
+              "label": "Grande",
+              "value": 50
+            }
+          ],
+          "image": ""
+        }
+      ]
+    }
+  ]
+}

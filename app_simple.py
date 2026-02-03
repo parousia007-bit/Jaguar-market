@@ -18,7 +18,9 @@ MARKETPLACE_DATA = load_data()
 
 @app.route('/')
 def index():
-    return render_template('index.html', config=MARKETPLACE_DATA.get('marketplace_config'))
+    return render_template('index.html',
+                           config=MARKETPLACE_DATA.get('marketplace_config'),
+                           vendors=MARKETPLACE_DATA.get('vendors', []))
 
 @app.route('/pizzerias')
 def pizzerias():
