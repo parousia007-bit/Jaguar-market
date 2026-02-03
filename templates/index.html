@@ -7,30 +7,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --jaguar-orange: #FF4D00;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-blur: 20px;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: {{ config.theme.primary_gradient }};
+            background: #0a0a0a;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 77, 0, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 40%);
             min-height: 100vh;
-            color: #333;
-            padding-bottom: 50px;
+            color: #fff;
+            padding-bottom: 80px;
         }
 
         .header {
             text-align: center;
-            padding: 60px 20px;
-            color: white;
+            padding: 80px 20px 40px;
+            position: relative;
         }
+
         .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 3.5em;
+            margin-bottom: 15px;
             font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
         }
+
         .header p {
             font-size: 1.2em;
-            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.6);
             max-width: 600px;
             margin: 0 auto;
+            font-weight: 300;
         }
 
         .container {
@@ -41,83 +58,111 @@
 
         .vendors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .vendor-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-            transition: all 0.3s ease;
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 0; /* Padding handled by inner elements */
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27), box-shadow 0.4s ease;
             text-decoration: none;
-            color: #2d3436;
+            color: white;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            position: relative;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 77, 0, 0.3);
+        }
+
+        .card-image-container {
+            height: 160px;
+            width: 100%;
+            background: #222;
             position: relative;
             overflow: hidden;
         }
 
-        .vendor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
-            background: rgba(255, 255, 255, 0.95);
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            opacity: 0.8;
         }
 
-        .vendor-icon {
-            width: 60px;
-            height: 60px;
-            background: {{ config.theme.accent_gradient }};
-            border-radius: 15px;
+        .glass-card:hover .card-image {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex: 1;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            flex-direction: column;
         }
 
         .vendor-name {
-            font-size: 1.5em;
-            font-weight: 800;
+            font-size: 1.6em;
+            font-weight: 700;
             margin-bottom: 8px;
-            background: -webkit-linear-gradient(45deg, #2d3436, #000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fff;
         }
 
         .vendor-desc {
             font-size: 0.95em;
-            color: #636e72;
-            line-height: 1.4;
-            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+            margin-bottom: 25px;
+            flex-grow: 1;
         }
 
         .visit-btn {
-            display: block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 12px;
-            text-align: center;
-            background: rgba(0,0,0,0.05);
-            border-radius: 12px;
+            padding: 14px;
+            background: linear-gradient(90deg, var(--jaguar-orange), #ff7b00);
+            border-radius: 16px;
             font-weight: 700;
-            color: #2d3436;
-            transition: all 0.3s;
-        }
-        .vendor-card:hover .visit-btn {
-            background: {{ config.theme.accent_gradient }};
             color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 77, 0, 0.3);
         }
 
-        /* Responsive Fixes */
-        @media (max-width: 480px) {
-            .header h1 { font-size: 2.2em; }
+        .visit-btn:hover {
+            box-shadow: 0 6px 20px rgba(255, 77, 0, 0.5);
+            transform: scale(1.02);
+        }
+
+        /* Loading Skeleton Animation */
+        .skeleton {
+            background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5em; }
             .vendors-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -126,22 +171,33 @@
 
     <div class="header">
         <h1>{{ config.name }}</h1>
-        <p>Explora nuestros {{ vendors|length }} negocios exclusivos y haz tu pedido directamente al stand.</p>
+        <p>Descubre lo mejor de nuestro bazar. 50 tiendas exclusivas a tu alcance.</p>
     </div>
 
     <div class="container">
         <div class="vendors-grid">
             {% for vendor in vendors %}
-            <a href="/{{ vendor.id }}" class="vendor-card">
-                <div>
-                    <div class="vendor-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
+            <a href="/{{ vendor.id }}" class="glass-card">
+                <div class="card-image-container skeleton">
+                    <!-- Try to find a representative image from the first product, or fallback -->
+                    {% set display_image = 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80' %}
+                    {% if vendor.categories and vendor.categories[0].products and vendor.categories[0].products[0].image %}
+                        {% set display_image = vendor.categories[0].products[0].image %}
+                    {% endif %}
+
+                    <img src="{{ display_image }}"
+                         alt="{{ vendor.name }}"
+                         class="card-image"
+                         loading="lazy"
+                         onload="this.parentElement.classList.remove('skeleton')">
+                </div>
+
+                <div class="card-content">
                     <div class="vendor-name">{{ vendor.name }}</div>
                     <div class="vendor-desc">{{ vendor.description }}</div>
-                </div>
-                <div class="visit-btn">
-                    Ver Menú <i class="fas fa-arrow-right" style="margin-left: 5px;"></i>
+                    <button class="visit-btn">
+                        Ver Tienda <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </button>
                 </div>
             </a>
             {% endfor %}
