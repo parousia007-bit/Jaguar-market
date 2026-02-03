@@ -1025,6 +1025,169 @@
           ]
         }
       ]
+    },
+    {
+      "id": "farmacia-san-rafael",
+      "name": "Farmacia San Rafael",
+      "description": "Medicamentos y Salud Integral",
+      "phone": "5215555555555",
+      "categories": [
+        {
+          "id": "medicamentos",
+          "name": "💊 Medicamentos",
+          "filter_name": "Medicamentos",
+          "products": [
+            {
+              "name": "Kit Analgésico",
+              "description": "Paracetamol, Ibuprofeno.",
+              "prices": [
+                {
+                  "label": "Paquete",
+                  "value": 120
+                }
+              ],
+              "image": ""
+            }
+          ]
+        },
+        {
+          "id": "cuidado-personal",
+          "name": "🧴 Cuidado Personal",
+          "filter_name": "Cuidado",
+          "products": [
+            {
+              "name": "Crema Hidratante",
+              "description": "500ml para piel seca.",
+              "prices": [
+                {
+                  "label": "Pieza",
+                  "value": 250
+                }
+              ],
+              "image": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dental",
+      "name": "Consultorio Dental",
+      "description": "Salud Bucal y Estética",
+      "phone": "5215555555555",
+      "categories": [
+        {
+          "id": "servicios",
+          "name": "🦷 Servicios Dentales",
+          "filter_name": "Servicios",
+          "products": [
+            {
+              "name": "Limpieza Dental",
+              "description": "Limpieza profunda con ultrasonido.",
+              "badge": "Promo",
+              "badge_class": "premium",
+              "prices": [
+                {
+                  "label": "Sesión",
+                  "value": 450
+                }
+              ],
+              "image": ""
+            },
+            {
+              "name": "Blanqueamiento",
+              "description": "Resultados inmediatos.",
+              "prices": [
+                {
+                  "label": "Sesión",
+                  "value": 1200
+                }
+              ],
+              "image": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laboratorio",
+      "name": "Laboratorio Clínico",
+      "description": "Análisis Clínicos Confiables",
+      "phone": "5215555555555",
+      "categories": [
+        {
+          "id": "estudios",
+          "name": "💉 Estudios de Laboratorio",
+          "filter_name": "Estudios",
+          "products": [
+            {
+              "name": "Química Sanguínea (6 elementos)",
+              "description": "Glucosa, Urea, Creatinina, Ácido Úrico, Colesterol, Triglicéridos.",
+              "prices": [
+                {
+                  "label": "Estudio",
+                  "value": 350
+                }
+              ],
+              "image": ""
+            },
+            {
+              "name": "Examen General de Orina",
+              "description": "Análisis completo.",
+              "prices": [
+                {
+                  "label": "Estudio",
+                  "value": 150
+                }
+              ],
+              "image": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gelee-dely",
+      "name": "Gelée Dely",
+      "description": "Postres y Gelatinas Gourmet",
+      "phone": "5215555555555",
+      "categories": [
+        {
+          "id": "gelatinas",
+          "name": "🍮 Gelatinas",
+          "filter_name": "Gelatinas",
+          "products": [
+            {
+              "name": "Gelatina Mosaico",
+              "description": "Sabores surtidos con base de leche.",
+              "badge": "Popular",
+              "badge_class": "",
+              "prices": [
+                {
+                  "label": "Individual",
+                  "value": 35
+                },
+                 {
+                  "label": "Grande",
+                  "value": 180
+                }
+              ],
+              "image": ""
+            },
+            {
+              "name": "Gelatina de Yogur",
+              "description": "Con frutas naturales.",
+              "prices": [
+                {
+                  "label": "Individual",
+                  "value": 45
+                }
+              ],
+              "image": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

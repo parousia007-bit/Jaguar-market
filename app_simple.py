@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, abort, request, jsonify
+from flask import Flask, render_template, abort, request, jsonify, redirect, url_for
 from jinja2 import TemplateNotFound
 
 app = Flask(__name__)
@@ -33,9 +33,8 @@ def vendor_site(vendor_id):
 
     vendor = next((v for v in MARKETPLACE_DATA.get('vendors', []) if v['id'] == vendor_id), None)
     if not vendor:
-        # Check if it might be a static legacy file before 404ing (optional, but good for safety)
-        # For now, strictly follow the requested logic: if not in JSON, 404 (unless another route matches)
-        abort(404)
+        # Fallback to home page if vendor not found (avoid broken page feeling)
+        return redirect(url_for('index'))
 
     return render_template('mini-sites/vendor_base.html',
                          vendor=vendor,

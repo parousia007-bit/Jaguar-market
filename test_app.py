@@ -26,9 +26,11 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Dental', response.data)
 
-    def test_404(self):
-        response = self.app.get('/bazar/non_existent')
-        self.assertEqual(response.status_code, 404)
+    def test_redirect_unknown(self):
+        # Should redirect to index instead of 404
+        response = self.app.get('/unknown_vendor')
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue('/' in response.headers['Location'])
 
     def test_direct_route_tavolos(self):
         response = self.app.get('/tavolos')
