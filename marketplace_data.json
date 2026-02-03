@@ -1,0 +1,542 @@
+{
+  "marketplace_config": {
+    "name": "Jaguar Market",
+    "theme": {
+      "primary_gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "header_gradient": "linear-gradient(135deg, #2d3436 0%, #000000 100%)",
+      "accent_gradient": "linear-gradient(135deg, #FF6B35, #f39c12)"
+    }
+  },
+  "vendors": [
+    {
+      "id": "tavolos",
+      "name": "Pizzería Tavolos",
+      "description": "Menú Completo",
+      "phone": "5219611010657",
+      "categories": [
+        {
+          "id": "pizzas",
+          "name": "🍕 PIZZAS",
+          "filter_name": "Pizzas",
+          "products": [
+            {
+              "name": "Pizza de la Casa",
+              "description": "Salsa alfredo, mozzarella, espinaca, pollo a la plancha",
+              "badge": "Popular",
+              "badge_class": "",
+              "prices": [
+                {"label": "Chica", "value": 95},
+                {"label": "Mediana", "value": 195},
+                {"label": "Grande", "value": 295},
+                {"label": "Familiar", "value": 395}
+              ]
+            },
+            {
+              "name": "Pizza Ligera",
+              "description": "Mozzarella, champiñones, pimientos y cherry",
+              "badge": "Vegetariana",
+              "badge_class": "vegetariano",
+              "prices": [
+                {"label": "Chica", "value": 85},
+                {"label": "Mediana", "value": 185},
+                {"label": "Grande", "value": 295},
+                {"label": "Familiar", "value": 395}
+              ]
+            },
+            {
+              "name": "Pizza Hawaiana",
+              "description": "Mozzarella, piña, jamón",
+              "badge": "Popular",
+              "badge_class": "",
+              "prices": [
+                {"label": "Chica", "value": 75},
+                {"label": "Mediana", "value": 150},
+                {"label": "Grande", "value": 245},
+                {"label": "Familiar", "value": 345}
+              ]
+            },
+            {
+              "name": "Pizza Pepperoni",
+              "description": "Mozzarella, pepperoni",
+              "prices": [
+                {"label": "Chica", "value": 70},
+                {"label": "Mediana", "value": 140},
+                {"label": "Grande", "value": 240},
+                {"label": "Familiar", "value": 345}
+              ]
+            },
+            {
+              "name": "Pizza Margarita",
+              "description": "Aceite de olivo con ajo, albahaca, cherry. No lleva salsa",
+              "prices": [
+                {"label": "Chica", "value": 80},
+                {"label": "Mediana", "value": 160},
+                {"label": "Grande", "value": 265},
+                {"label": "Familiar", "value": 365}
+              ]
+            },
+            {
+              "name": "Pizza Suprema",
+              "description": "Mozzarella, pepperoni, jamón, carne, champiñones, cebollas, olivos negros, pimientos rojos y verdes",
+              "badge": "Premium",
+              "badge_class": "premium",
+              "prices": [
+                {"label": "Chica", "value": 135},
+                {"label": "Mediana", "value": 245},
+                {"label": "Grande", "value": 345},
+                {"label": "Familiar", "value": 455}
+              ]
+            },
+            {
+              "name": "Pizza Superior",
+              "description": "Mozzarella, pepperoni, jamón, carne",
+              "prices": [
+                {"label": "Chica", "value": 95},
+                {"label": "Mediana", "value": 200},
+                {"label": "Grande", "value": 315},
+                {"label": "Familiar", "value": 415}
+              ]
+            },
+            {
+              "name": "Pizza Búfalo",
+              "description": "Salsa búfalo, mozzarella, pollo a la plancha",
+              "badge": "Picante",
+              "badge_class": "picante",
+              "prices": [
+                {"label": "Chica", "value": 85},
+                {"label": "Mediana", "value": 175},
+                {"label": "Grande", "value": 285},
+                {"label": "Familiar", "value": 385}
+              ]
+            },
+            {
+              "name": "Pizza Florentina",
+              "description": "Salsa alfredo, cherry, espinaca",
+              "badge": "Vegetariana",
+              "badge_class": "vegetariano",
+              "prices": [
+                {"label": "Chica", "value": 80},
+                {"label": "Mediana", "value": 175},
+                {"label": "Grande", "value": 275},
+                {"label": "Familiar", "value": 375}
+              ]
+            },
+            {
+              "name": "Pizza de Vegetales",
+              "description": "Mozzarella, champiñones, pimientos, cebolla, olivos negros y cherry",
+              "badge": "Vegetariana",
+              "badge_class": "vegetariano",
+              "prices": [
+                {"label": "Chica", "value": 125},
+                {"label": "Mediana", "value": 235},
+                {"label": "Grande", "value": 340},
+                {"label": "Familiar", "value": 445}
+              ]
+            },
+            {
+              "name": "Pizza Blanca",
+              "description": "Ricotta/atún, cherry y queso mozzarella. No lleva salsa",
+              "prices": [
+                {"label": "Chica", "value": 100},
+                {"label": "Mediana", "value": 210},
+                {"label": "Grande", "value": 315},
+                {"label": "Familiar", "value": 410}
+              ]
+            },
+            {
+              "name": "Pizza de Queso",
+              "description": "Queso mozzarella abundante",
+              "prices": [
+                {"label": "Chica", "value": 65},
+                {"label": "Mediana", "value": 130},
+                {"label": "Grande", "value": 215},
+                {"label": "Familiar", "value": 295}
+              ]
+            },
+            {
+              "name": "Pizza de Salchichas",
+              "description": "Mozzarella, salchicha italiana",
+              "prices": [
+                {"label": "Chica", "value": 105},
+                {"label": "Mediana", "value": 200},
+                {"label": "Grande", "value": 305},
+                {"label": "Familiar", "value": 405}
+              ]
+            },
+            {
+              "name": "Pizza de Durazno",
+              "description": "Durazno, mozzarella, philadelphia, nuez",
+              "badge": "Premium",
+              "badge_class": "premium",
+              "prices": [
+                {"label": "Chica", "value": 95},
+                {"label": "Mediana", "value": 195},
+                {"label": "Grande", "value": 295},
+                {"label": "Familiar", "value": 395}
+              ]
+            },
+            {
+              "name": "Pizza Rey",
+              "description": "Carne, jamón, pepperoni, champiñones, pimientos, cebolla, olivos negros, cherry, pollo a la plancha y salchichas",
+              "badge": "La Más Completa",
+              "badge_class": "premium",
+              "prices": [
+                {"label": "Mediana", "value": 310},
+                {"label": "Grande", "value": 420},
+                {"label": "Familiar", "value": 530}
+              ]
+            },
+            {
+              "name": "Pizza Rellena - Carnes",
+              "description": "Mozzarella, jamón, carne de res, pepperoni. No lleva salsa, a menos que la pida",
+              "badge": "Rellena",
+              "badge_class": "premium",
+              "prices": [
+                {"label": "Mediana", "value": 275},
+                {"label": "Grande", "value": 375},
+                {"label": "Familiar", "value": 485}
+              ]
+            },
+            {
+              "name": "Pizza Rellena - Vegetales",
+              "description": "Queso mozzarella, champiñones, pimientos, cebolla, olivos negros y cherry. No lleva salsa a menos que la pida",
+              "badge": "Rellena",
+              "badge_class": "vegetariano",
+              "prices": [
+                {"label": "Mediana", "value": 295},
+                {"label": "Grande", "value": 395},
+                {"label": "Familiar", "value": 495}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pastas",
+          "name": "🍝 PASTAS",
+          "filter_name": "Pastas",
+          "products": [
+            {
+              "name": "Fettuccini Alfredo",
+              "description": "Pasta fettuccini con salsa alfredo cremosa",
+              "prices": [
+                {"label": "Sin Proteína", "value": 170},
+                {"label": "Con Camarón", "value": 245},
+                {"label": "Con Pollo", "value": 230},
+                {"label": "Con Salchicha", "value": 235}
+              ]
+            },
+            {
+              "name": "Spaghetti / Cabello de Ángel",
+              "description": "Con salsa roja o rosa",
+              "prices": [
+                {"label": "Simple", "value": 110},
+                {"label": "Con Carne", "value": 180},
+                {"label": "Con Albóndigas", "value": 180},
+                {"label": "Con Salchicha", "value": 170}
+              ]
+            },
+            {
+              "name": "Tortellini Bolognese",
+              "description": "Tortellini pasta, vino blanco, salsa rosa y carne molida de res",
+              "badge": "Popular",
+              "badge_class": "",
+              "prices": [
+                {"label": "Porción", "value": 285}
+              ]
+            },
+            {
+              "name": "Bolognese con Salsa",
+              "description": "Con salsa rosa o alfredo",
+              "prices": [
+                {"label": "Salsa Rosa", "value": 255},
+                {"label": "Alfredo", "value": 260}
+              ]
+            },
+            {
+              "name": "Raviolis de Queso",
+              "description": "Pasta rellena de queso en salsa roja y queso mozzarella gratinado",
+              "prices": [
+                {"label": "Simple", "value": 185},
+                {"label": "C/Bolognese", "value": 210},
+                {"label": "Con Carne", "value": 200}
+              ]
+            },
+            {
+              "name": "Raviolis de Langosta",
+              "description": "Pasta rellena de langosta en salsa rosa con queso mozzarella gratinado",
+              "badge": "Premium",
+              "badge_class": "premium",
+              "prices": [
+                {"label": "Porción", "value": 230}
+              ]
+            },
+            {
+              "name": "Plumas al Pesto",
+              "description": "Pasta plumas, salsa pesto, cherry, vino blanco",
+              "prices": [
+                {"label": "Porción", "value": 260}
+              ]
+            },
+            {
+              "name": "Plumas al Horno",
+              "description": "Pasta plumas, salsa de la casa, queso mozzarella gratinado",
+              "prices": [
+                {"label": "Porción", "value": 280}
+              ]
+            },
+            {
+              "name": "Lasagna",
+              "description": "Lasagna tradicional con carne, salsa roja y queso gratinado. Porción individual.",
+              "badge": "Popular",
+              "badge_class": "",
+              "prices": [
+                {"label": "Porción", "value": 290}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "alitas",
+          "name": "🍗 ALITAS & ENTRADAS",
+          "filter_name": "Alitas",
+          "products": [
+            {
+              "name": "Alitas Búfalo (9 pzas)",
+              "description": "Pimienta negra, aceite de olivo con ajo molido fresco y queso parmesano",
+              "badge": "Picante",
+              "badge_class": "picante",
+              "prices": [
+                {"label": "9 piezas", "value": 150}
+              ]
+            },
+            {
+              "name": "Alitas Mango Habanero (9 pzas)",
+              "description": "Salsa de mango con un toque picante de habanero",
+              "badge": "Popular",
+              "badge_class": "",
+              "prices": [
+                {"label": "9 piezas", "value": 150}
+              ]
+            },
+            {
+              "name": "Alitas Chipotle (9 pzas)",
+              "description": "Salsa chipotle ahumada",
+              "prices": [
+                {"label": "9 piezas", "value": 145}
+              ]
+            },
+            {
+              "name": "Alitas BBQ (9 pzas)",
+              "description": "Salsa barbecue tradicional",
+              "prices": [
+                {"label": "9 piezas", "value": 140}
+              ]
+            },
+            {
+              "name": "Alitas Extra Sazón de la Casa (9 pzas)",
+              "description": "Sazón especial de la casa con especias secretas",
+              "badge": "Exclusivo",
+              "badge_class": "",
+              "prices": [
+                {"label": "9 piezas", "value": 170}
+              ]
+            },
+            {
+              "name": "Pan con Ajo (4 pzas)",
+              "description": "Pan tostado con mantequilla de ajo y hierbas",
+              "prices": [
+                {"label": "4 piezas", "value": 80}
+              ]
+            },
+            {
+              "name": "Bruschetta (8 pzas)",
+              "description": "Pan tostado con tomate fresco, albahaca y aceite de oliva",
+              "prices": [
+                {"label": "8 piezas", "value": 70}
+              ]
+            },
+            {
+              "name": "Dip de Aceite de Oliva con Especias",
+              "description": "Aceite de oliva virgen con especias italianas y pan artesanal",
+              "prices": [
+                {"label": "Porción", "value": 90}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bebidas",
+          "name": "🥤 BEBIDAS",
+          "filter_name": "Bebidas",
+          "products": [
+            {
+              "name": "Aguas Frescas Naturales",
+              "description": "Horchata, Jamaica, Tamarindo (preparadas al momento)",
+              "prices": [
+                {"label": "Vaso", "value": 35},
+                {"label": "Jarra (5 vasos)", "value": 80}
+              ]
+            },
+            {
+              "name": "Limón con Chía",
+              "description": "Jugo de limón natural con semillas de chía",
+              "prices": [
+                {"label": "Vaso", "value": 35},
+                {"label": "Jarra", "value": 80}
+              ]
+            },
+            {
+              "name": "Agua de Pepino",
+              "description": "Pepino fresco con un toque de limón",
+              "prices": [
+                {"label": "Vaso", "value": 40},
+                {"label": "Jarra", "value": 85}
+              ]
+            },
+            {
+              "name": "Agua de Piña con Hierbabuena",
+              "description": "Piña natural con un toque de hierbabuena fresca",
+              "badge": "Popular",
+              "badge_class": "",
+              "prices": [
+                {"label": "Vaso", "value": 40},
+                {"label": "Jarra", "value": 85}
+              ]
+            },
+            {
+              "name": "Té Limón Frío",
+              "description": "Té helado con hojas de limón",
+              "prices": [
+                {"label": "Vaso", "value": 40},
+                {"label": "Jarra", "value": 85}
+              ]
+            },
+            {
+              "name": "Agua de Zanahoria con Naranja",
+              "description": "Zanahoria y naranja natural",
+              "prices": [
+                {"label": "Vaso", "value": 40},
+                {"label": "Jarra", "value": 85}
+              ]
+            },
+            {
+              "name": "Agua de Maracuyá",
+              "description": "Pulpa de maracuyá natural",
+              "prices": [
+                {"label": "Vaso", "value": 40},
+                {"label": "Jarra", "value": 85}
+              ]
+            },
+            {
+              "name": "Agua de Guanábana",
+              "description": "Pulpa de guanábana natural",
+              "prices": [
+                {"label": "Vaso", "value": 40},
+                {"label": "Jarra", "value": 85}
+              ]
+            },
+            {
+              "name": "Refrescos",
+              "description": "Coca-Cola, Sprite, Fanta, Fresca, Sidral Mundet",
+              "prices": [
+                {"label": "Lata", "value": 35}
+              ]
+            },
+            {
+              "name": "Pozol de Cacao",
+              "description": "Disfrútalo frío con cacahuates y ensalada de pepino",
+              "badge": "Especial",
+              "badge_class": "premium",
+              "prices": [
+                {"label": "Vaso", "value": 50}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "platillos",
+          "name": "🍽️ PLATILLOS",
+          "filter_name": "Platillos",
+          "header_note": "Todos los platillos incluyen pasta y pan del día. Porción individual.",
+          "products": [
+            {
+              "name": "Camarón Scampi",
+              "description": "Para 1 persona. Camarones, vino blanco, limón, cherry. Con pasta cabello de ángel.",
+              "prices": [
+                {"label": "Porción", "value": 200}
+              ]
+            },
+            {
+              "name": "Tavolo Especial",
+              "description": "Para 1 persona. Pollo a la plancha, champiñones, pimientos, cebolla. Con spaghetti.",
+              "badge": "Popular",
+              "badge_class": "",
+              "prices": [
+                {"label": "Porción", "value": 280}
+              ]
+            },
+            {
+              "name": "Pollo Cremora",
+              "description": "Para 1 persona. Pollo a la plancha, salsa Alfredo, champiñones, vino blanco. Con spaghetti.",
+              "prices": [
+                {"label": "Porción", "value": 285}
+              ]
+            },
+            {
+              "name": "Pollo a la Parmigiana",
+              "description": "Para 1 persona. Spaghetti, filete de pollo empanizado con salsa roja y queso mozzarella gratinado.",
+              "badge": "Popular",
+              "badge_class": "",
+              "prices": [
+                {"label": "Porción", "value": 200}
+              ]
+            },
+            {
+              "name": "Vegetales con Pollo a la Plancha",
+              "description": "Para 1 persona. Pollo a la plancha, champiñones, pimientos, cebolla, brócoli, cherry.",
+              "badge": "Saludable",
+              "badge_class": "vegetariano",
+              "prices": [
+                {"label": "Porción", "value": 215}
+              ]
+            },
+            {
+              "name": "Carne a la Parmigiana",
+              "description": "Para 1 persona. Spaghetti, carne de res empanizada con salsa roja y queso mozzarella gratinado.",
+              "prices": [
+                {"label": "Porción", "value": 210}
+              ]
+            },
+            {
+              "name": "Berenjenas a la Parmigiana",
+              "description": "Para 1 persona. Spaghetti, berenjenas empanizadas en salsa roja y queso mozzarella gratinado.",
+              "badge": "Vegetariano",
+              "badge_class": "vegetariano",
+              "prices": [
+                {"label": "Porción", "value": 190}
+              ]
+            },
+            {
+              "name": "Pasta Combo 1",
+              "description": "Para 1 persona. Pasta fettuccini con salsa alfredo, almejas, camarón, ajo, aceite de olivo, vino blanco.",
+              "badge": "Premium",
+              "badge_class": "premium",
+              "prices": [
+                {"label": "Porción", "value": 380}
+              ]
+            },
+            {
+              "name": "Pasta Combo 2",
+              "description": "Para 1 persona. Pasta linguine con salsa roja, almejas, camarón, ajo, aceite de olivo, vino blanco.",
+              "badge": "Premium",
+              "badge_class": "premium",
+              "prices": [
+                {"label": "Porción", "value": 360}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
