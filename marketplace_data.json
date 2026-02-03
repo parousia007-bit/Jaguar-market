@@ -25,11 +25,24 @@
               "badge": "Popular",
               "badge_class": "",
               "prices": [
-                {"label": "Chica", "value": 95},
-                {"label": "Mediana", "value": 195},
-                {"label": "Grande", "value": 295},
-                {"label": "Familiar", "value": 395}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 95
+                },
+                {
+                  "label": "Mediana",
+                  "value": 195
+                },
+                {
+                  "label": "Grande",
+                  "value": 295
+                },
+                {
+                  "label": "Familiar",
+                  "value": 395
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Ligera",
@@ -37,11 +50,24 @@
               "badge": "Vegetariana",
               "badge_class": "vegetariano",
               "prices": [
-                {"label": "Chica", "value": 85},
-                {"label": "Mediana", "value": 185},
-                {"label": "Grande", "value": 295},
-                {"label": "Familiar", "value": 395}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 85
+                },
+                {
+                  "label": "Mediana",
+                  "value": 185
+                },
+                {
+                  "label": "Grande",
+                  "value": 295
+                },
+                {
+                  "label": "Familiar",
+                  "value": 395
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Hawaiana",
@@ -49,31 +75,70 @@
               "badge": "Popular",
               "badge_class": "",
               "prices": [
-                {"label": "Chica", "value": 75},
-                {"label": "Mediana", "value": 150},
-                {"label": "Grande", "value": 245},
-                {"label": "Familiar", "value": 345}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 75
+                },
+                {
+                  "label": "Mediana",
+                  "value": 150
+                },
+                {
+                  "label": "Grande",
+                  "value": 245
+                },
+                {
+                  "label": "Familiar",
+                  "value": 345
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Pepperoni",
               "description": "Mozzarella, pepperoni",
               "prices": [
-                {"label": "Chica", "value": 70},
-                {"label": "Mediana", "value": 140},
-                {"label": "Grande", "value": 240},
-                {"label": "Familiar", "value": 345}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 70
+                },
+                {
+                  "label": "Mediana",
+                  "value": 140
+                },
+                {
+                  "label": "Grande",
+                  "value": 240
+                },
+                {
+                  "label": "Familiar",
+                  "value": 345
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Margarita",
               "description": "Aceite de olivo con ajo, albahaca, cherry. No lleva salsa",
               "prices": [
-                {"label": "Chica", "value": 80},
-                {"label": "Mediana", "value": 160},
-                {"label": "Grande", "value": 265},
-                {"label": "Familiar", "value": 365}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 80
+                },
+                {
+                  "label": "Mediana",
+                  "value": 160
+                },
+                {
+                  "label": "Grande",
+                  "value": 265
+                },
+                {
+                  "label": "Familiar",
+                  "value": 365
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Suprema",
@@ -81,21 +146,47 @@
               "badge": "Premium",
               "badge_class": "premium",
               "prices": [
-                {"label": "Chica", "value": 135},
-                {"label": "Mediana", "value": 245},
-                {"label": "Grande", "value": 345},
-                {"label": "Familiar", "value": 455}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 135
+                },
+                {
+                  "label": "Mediana",
+                  "value": 245
+                },
+                {
+                  "label": "Grande",
+                  "value": 345
+                },
+                {
+                  "label": "Familiar",
+                  "value": 455
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Superior",
               "description": "Mozzarella, pepperoni, jamón, carne",
               "prices": [
-                {"label": "Chica", "value": 95},
-                {"label": "Mediana", "value": 200},
-                {"label": "Grande", "value": 315},
-                {"label": "Familiar", "value": 415}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 95
+                },
+                {
+                  "label": "Mediana",
+                  "value": 200
+                },
+                {
+                  "label": "Grande",
+                  "value": 315
+                },
+                {
+                  "label": "Familiar",
+                  "value": 415
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Búfalo",
@@ -103,11 +194,24 @@
               "badge": "Picante",
               "badge_class": "picante",
               "prices": [
-                {"label": "Chica", "value": 85},
-                {"label": "Mediana", "value": 175},
-                {"label": "Grande", "value": 285},
-                {"label": "Familiar", "value": 385}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 85
+                },
+                {
+                  "label": "Mediana",
+                  "value": 175
+                },
+                {
+                  "label": "Grande",
+                  "value": 285
+                },
+                {
+                  "label": "Familiar",
+                  "value": 385
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Florentina",
@@ -115,11 +219,24 @@
               "badge": "Vegetariana",
               "badge_class": "vegetariano",
               "prices": [
-                {"label": "Chica", "value": 80},
-                {"label": "Mediana", "value": 175},
-                {"label": "Grande", "value": 275},
-                {"label": "Familiar", "value": 375}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 80
+                },
+                {
+                  "label": "Mediana",
+                  "value": 175
+                },
+                {
+                  "label": "Grande",
+                  "value": 275
+                },
+                {
+                  "label": "Familiar",
+                  "value": 375
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza de Vegetales",
@@ -127,41 +244,93 @@
               "badge": "Vegetariana",
               "badge_class": "vegetariano",
               "prices": [
-                {"label": "Chica", "value": 125},
-                {"label": "Mediana", "value": 235},
-                {"label": "Grande", "value": 340},
-                {"label": "Familiar", "value": 445}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 125
+                },
+                {
+                  "label": "Mediana",
+                  "value": 235
+                },
+                {
+                  "label": "Grande",
+                  "value": 340
+                },
+                {
+                  "label": "Familiar",
+                  "value": 445
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Blanca",
               "description": "Ricotta/atún, cherry y queso mozzarella. No lleva salsa",
               "prices": [
-                {"label": "Chica", "value": 100},
-                {"label": "Mediana", "value": 210},
-                {"label": "Grande", "value": 315},
-                {"label": "Familiar", "value": 410}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 100
+                },
+                {
+                  "label": "Mediana",
+                  "value": 210
+                },
+                {
+                  "label": "Grande",
+                  "value": 315
+                },
+                {
+                  "label": "Familiar",
+                  "value": 410
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza de Queso",
               "description": "Queso mozzarella abundante",
               "prices": [
-                {"label": "Chica", "value": 65},
-                {"label": "Mediana", "value": 130},
-                {"label": "Grande", "value": 215},
-                {"label": "Familiar", "value": 295}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 65
+                },
+                {
+                  "label": "Mediana",
+                  "value": 130
+                },
+                {
+                  "label": "Grande",
+                  "value": 215
+                },
+                {
+                  "label": "Familiar",
+                  "value": 295
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza de Salchichas",
               "description": "Mozzarella, salchicha italiana",
               "prices": [
-                {"label": "Chica", "value": 105},
-                {"label": "Mediana", "value": 200},
-                {"label": "Grande", "value": 305},
-                {"label": "Familiar", "value": 405}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 105
+                },
+                {
+                  "label": "Mediana",
+                  "value": 200
+                },
+                {
+                  "label": "Grande",
+                  "value": 305
+                },
+                {
+                  "label": "Familiar",
+                  "value": 405
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza de Durazno",
@@ -169,11 +338,24 @@
               "badge": "Premium",
               "badge_class": "premium",
               "prices": [
-                {"label": "Chica", "value": 95},
-                {"label": "Mediana", "value": 195},
-                {"label": "Grande", "value": 295},
-                {"label": "Familiar", "value": 395}
-              ]
+                {
+                  "label": "Chica",
+                  "value": 95
+                },
+                {
+                  "label": "Mediana",
+                  "value": 195
+                },
+                {
+                  "label": "Grande",
+                  "value": 295
+                },
+                {
+                  "label": "Familiar",
+                  "value": 395
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Rey",
@@ -181,10 +363,20 @@
               "badge": "La Más Completa",
               "badge_class": "premium",
               "prices": [
-                {"label": "Mediana", "value": 310},
-                {"label": "Grande", "value": 420},
-                {"label": "Familiar", "value": 530}
-              ]
+                {
+                  "label": "Mediana",
+                  "value": 310
+                },
+                {
+                  "label": "Grande",
+                  "value": 420
+                },
+                {
+                  "label": "Familiar",
+                  "value": 530
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Rellena - Carnes",
@@ -192,10 +384,20 @@
               "badge": "Rellena",
               "badge_class": "premium",
               "prices": [
-                {"label": "Mediana", "value": 275},
-                {"label": "Grande", "value": 375},
-                {"label": "Familiar", "value": 485}
-              ]
+                {
+                  "label": "Mediana",
+                  "value": 275
+                },
+                {
+                  "label": "Grande",
+                  "value": 375
+                },
+                {
+                  "label": "Familiar",
+                  "value": 485
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pizza Rellena - Vegetales",
@@ -203,10 +405,20 @@
               "badge": "Rellena",
               "badge_class": "vegetariano",
               "prices": [
-                {"label": "Mediana", "value": 295},
-                {"label": "Grande", "value": 395},
-                {"label": "Familiar", "value": 495}
-              ]
+                {
+                  "label": "Mediana",
+                  "value": 295
+                },
+                {
+                  "label": "Grande",
+                  "value": 395
+                },
+                {
+                  "label": "Familiar",
+                  "value": 495
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"
             }
           ]
         },
@@ -219,21 +431,47 @@
               "name": "Fettuccini Alfredo",
               "description": "Pasta fettuccini con salsa alfredo cremosa",
               "prices": [
-                {"label": "Sin Proteína", "value": 170},
-                {"label": "Con Camarón", "value": 245},
-                {"label": "Con Pollo", "value": 230},
-                {"label": "Con Salchicha", "value": 235}
-              ]
+                {
+                  "label": "Sin Proteína",
+                  "value": 170
+                },
+                {
+                  "label": "Con Camarón",
+                  "value": 245
+                },
+                {
+                  "label": "Con Pollo",
+                  "value": 230
+                },
+                {
+                  "label": "Con Salchicha",
+                  "value": 235
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Spaghetti / Cabello de Ángel",
               "description": "Con salsa roja o rosa",
               "prices": [
-                {"label": "Simple", "value": 110},
-                {"label": "Con Carne", "value": 180},
-                {"label": "Con Albóndigas", "value": 180},
-                {"label": "Con Salchicha", "value": 170}
-              ]
+                {
+                  "label": "Simple",
+                  "value": 110
+                },
+                {
+                  "label": "Con Carne",
+                  "value": 180
+                },
+                {
+                  "label": "Con Albóndigas",
+                  "value": 180
+                },
+                {
+                  "label": "Con Salchicha",
+                  "value": 170
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Tortellini Bolognese",
@@ -241,25 +479,46 @@
               "badge": "Popular",
               "badge_class": "",
               "prices": [
-                {"label": "Porción", "value": 285}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 285
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Bolognese con Salsa",
               "description": "Con salsa rosa o alfredo",
               "prices": [
-                {"label": "Salsa Rosa", "value": 255},
-                {"label": "Alfredo", "value": 260}
-              ]
+                {
+                  "label": "Salsa Rosa",
+                  "value": 255
+                },
+                {
+                  "label": "Alfredo",
+                  "value": 260
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Raviolis de Queso",
               "description": "Pasta rellena de queso en salsa roja y queso mozzarella gratinado",
               "prices": [
-                {"label": "Simple", "value": 185},
-                {"label": "C/Bolognese", "value": 210},
-                {"label": "Con Carne", "value": 200}
-              ]
+                {
+                  "label": "Simple",
+                  "value": 185
+                },
+                {
+                  "label": "C/Bolognese",
+                  "value": 210
+                },
+                {
+                  "label": "Con Carne",
+                  "value": 200
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Raviolis de Langosta",
@@ -267,22 +526,34 @@
               "badge": "Premium",
               "badge_class": "premium",
               "prices": [
-                {"label": "Porción", "value": 230}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 230
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Plumas al Pesto",
               "description": "Pasta plumas, salsa pesto, cherry, vino blanco",
               "prices": [
-                {"label": "Porción", "value": 260}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 260
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Plumas al Horno",
               "description": "Pasta plumas, salsa de la casa, queso mozzarella gratinado",
               "prices": [
-                {"label": "Porción", "value": 280}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 280
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Lasagna",
@@ -290,8 +561,12 @@
               "badge": "Popular",
               "badge_class": "",
               "prices": [
-                {"label": "Porción", "value": 290}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 290
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=500&auto=format&fit=crop&q=60"
             }
           ]
         },
@@ -306,8 +581,12 @@
               "badge": "Picante",
               "badge_class": "picante",
               "prices": [
-                {"label": "9 piezas", "value": 150}
-              ]
+                {
+                  "label": "9 piezas",
+                  "value": 150
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Alitas Mango Habanero (9 pzas)",
@@ -315,22 +594,34 @@
               "badge": "Popular",
               "badge_class": "",
               "prices": [
-                {"label": "9 piezas", "value": 150}
-              ]
+                {
+                  "label": "9 piezas",
+                  "value": 150
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Alitas Chipotle (9 pzas)",
               "description": "Salsa chipotle ahumada",
               "prices": [
-                {"label": "9 piezas", "value": 145}
-              ]
+                {
+                  "label": "9 piezas",
+                  "value": 145
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Alitas BBQ (9 pzas)",
               "description": "Salsa barbecue tradicional",
               "prices": [
-                {"label": "9 piezas", "value": 140}
-              ]
+                {
+                  "label": "9 piezas",
+                  "value": 140
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Alitas Extra Sazón de la Casa (9 pzas)",
@@ -338,29 +629,45 @@
               "badge": "Exclusivo",
               "badge_class": "",
               "prices": [
-                {"label": "9 piezas", "value": 170}
-              ]
+                {
+                  "label": "9 piezas",
+                  "value": 170
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pan con Ajo (4 pzas)",
               "description": "Pan tostado con mantequilla de ajo y hierbas",
               "prices": [
-                {"label": "4 piezas", "value": 80}
-              ]
+                {
+                  "label": "4 piezas",
+                  "value": 80
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Bruschetta (8 pzas)",
               "description": "Pan tostado con tomate fresco, albahaca y aceite de oliva",
               "prices": [
-                {"label": "8 piezas", "value": 70}
-              ]
+                {
+                  "label": "8 piezas",
+                  "value": 70
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Dip de Aceite de Oliva con Especias",
               "description": "Aceite de oliva virgen con especias italianas y pan artesanal",
               "prices": [
-                {"label": "Porción", "value": 90}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 90
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&auto=format&fit=crop&q=60"
             }
           ]
         },
@@ -373,25 +680,46 @@
               "name": "Aguas Frescas Naturales",
               "description": "Horchata, Jamaica, Tamarindo (preparadas al momento)",
               "prices": [
-                {"label": "Vaso", "value": 35},
-                {"label": "Jarra (5 vasos)", "value": 80}
-              ]
+                {
+                  "label": "Vaso",
+                  "value": 35
+                },
+                {
+                  "label": "Jarra (5 vasos)",
+                  "value": 80
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Limón con Chía",
               "description": "Jugo de limón natural con semillas de chía",
               "prices": [
-                {"label": "Vaso", "value": 35},
-                {"label": "Jarra", "value": 80}
-              ]
+                {
+                  "label": "Vaso",
+                  "value": 35
+                },
+                {
+                  "label": "Jarra",
+                  "value": 80
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Agua de Pepino",
               "description": "Pepino fresco con un toque de limón",
               "prices": [
-                {"label": "Vaso", "value": 40},
-                {"label": "Jarra", "value": 85}
-              ]
+                {
+                  "label": "Vaso",
+                  "value": 40
+                },
+                {
+                  "label": "Jarra",
+                  "value": 85
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Agua de Piña con Hierbabuena",
@@ -399,48 +727,87 @@
               "badge": "Popular",
               "badge_class": "",
               "prices": [
-                {"label": "Vaso", "value": 40},
-                {"label": "Jarra", "value": 85}
-              ]
+                {
+                  "label": "Vaso",
+                  "value": 40
+                },
+                {
+                  "label": "Jarra",
+                  "value": 85
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Té Limón Frío",
               "description": "Té helado con hojas de limón",
               "prices": [
-                {"label": "Vaso", "value": 40},
-                {"label": "Jarra", "value": 85}
-              ]
+                {
+                  "label": "Vaso",
+                  "value": 40
+                },
+                {
+                  "label": "Jarra",
+                  "value": 85
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Agua de Zanahoria con Naranja",
               "description": "Zanahoria y naranja natural",
               "prices": [
-                {"label": "Vaso", "value": 40},
-                {"label": "Jarra", "value": 85}
-              ]
+                {
+                  "label": "Vaso",
+                  "value": 40
+                },
+                {
+                  "label": "Jarra",
+                  "value": 85
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Agua de Maracuyá",
               "description": "Pulpa de maracuyá natural",
               "prices": [
-                {"label": "Vaso", "value": 40},
-                {"label": "Jarra", "value": 85}
-              ]
+                {
+                  "label": "Vaso",
+                  "value": 40
+                },
+                {
+                  "label": "Jarra",
+                  "value": 85
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Agua de Guanábana",
               "description": "Pulpa de guanábana natural",
               "prices": [
-                {"label": "Vaso", "value": 40},
-                {"label": "Jarra", "value": 85}
-              ]
+                {
+                  "label": "Vaso",
+                  "value": 40
+                },
+                {
+                  "label": "Jarra",
+                  "value": 85
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Refrescos",
               "description": "Coca-Cola, Sprite, Fanta, Fresca, Sidral Mundet",
               "prices": [
-                {"label": "Lata", "value": 35}
-              ]
+                {
+                  "label": "Lata",
+                  "value": 35
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pozol de Cacao",
@@ -448,8 +815,12 @@
               "badge": "Especial",
               "badge_class": "premium",
               "prices": [
-                {"label": "Vaso", "value": 50}
-              ]
+                {
+                  "label": "Vaso",
+                  "value": 50
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"
             }
           ]
         },
@@ -463,8 +834,12 @@
               "name": "Camarón Scampi",
               "description": "Para 1 persona. Camarones, vino blanco, limón, cherry. Con pasta cabello de ángel.",
               "prices": [
-                {"label": "Porción", "value": 200}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 200
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Tavolo Especial",
@@ -472,15 +847,23 @@
               "badge": "Popular",
               "badge_class": "",
               "prices": [
-                {"label": "Porción", "value": 280}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 280
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pollo Cremora",
               "description": "Para 1 persona. Pollo a la plancha, salsa Alfredo, champiñones, vino blanco. Con spaghetti.",
               "prices": [
-                {"label": "Porción", "value": 285}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 285
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pollo a la Parmigiana",
@@ -488,8 +871,12 @@
               "badge": "Popular",
               "badge_class": "",
               "prices": [
-                {"label": "Porción", "value": 200}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 200
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Vegetales con Pollo a la Plancha",
@@ -497,15 +884,23 @@
               "badge": "Saludable",
               "badge_class": "vegetariano",
               "prices": [
-                {"label": "Porción", "value": 215}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 215
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Carne a la Parmigiana",
               "description": "Para 1 persona. Spaghetti, carne de res empanizada con salsa roja y queso mozzarella gratinado.",
               "prices": [
-                {"label": "Porción", "value": 210}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 210
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Berenjenas a la Parmigiana",
@@ -513,8 +908,12 @@
               "badge": "Vegetariano",
               "badge_class": "vegetariano",
               "prices": [
-                {"label": "Porción", "value": 190}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 190
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pasta Combo 1",
@@ -522,8 +921,12 @@
               "badge": "Premium",
               "badge_class": "premium",
               "prices": [
-                {"label": "Porción", "value": 380}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 380
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
             },
             {
               "name": "Pasta Combo 2",
@@ -531,8 +934,12 @@
               "badge": "Premium",
               "badge_class": "premium",
               "prices": [
-                {"label": "Porción", "value": 360}
-              ]
+                {
+                  "label": "Porción",
+                  "value": 360
+                }
+              ],
+              "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60"
             }
           ]
         }
