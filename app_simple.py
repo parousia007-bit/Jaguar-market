@@ -1,33 +1,26 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
+from jinja2 import TemplateNotFound
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')  # Tu index_profesional.html ahora
+    return render_template('index.html')
 
 @app.route('/pizzerias')
 def pizzerias():
-    return render_template('pizzerias.html')  # Tu pizzerias.html original
+    return render_template('pizzerias.html')
 
-@app.route('/pizzerias/tavolos')
-def tavolos():
-    return render_template('pizzeria_tavolos.html')
+# Dynamic Route for Bazaar Vendors
+@app.route('/bazar/<vendor_slug>')
+def bazar_vendor(vendor_slug):
+    try:
+        return render_template(f'mini-sites/{vendor_slug}.html')
+    except TemplateNotFound:
+        abort(404)
 
-@app.route('/pizzerias/tavolos/menu-pdf')
-def tavolos_menu_pdf():
-    return render_template('pizzeria_tavolos_menu_completo.html')
-
-# Otras rutas que puedas tener
-@app.route('/gelatinas/gelee-dely')
-def gelee_dely():
-    return render_template('gelee_dely.html')
-
-@app.route('/postres/gelee-dely')
-def gelee_dely_alt():
-    return render_template('gelee_dely.html')
-
+# Admin & Other Routes (Preserved but checked for validity)
 @app.route('/admin/dashboard')
 def admin_dashboard():
     return render_template('admin_dashboard.html')
@@ -37,23 +30,6 @@ def plaza():
     return render_template('plaza/index.html')
 
 @app.route('/mall-3d')
-
-# ==== SERVICIOS PROFESIONALES ====
-@app.route('/servicios/dental')
-def consultorio_dental():
-    return render_template('consultorio_dental.html')
-
-@app.route('/servicios/dental/agendar-cita')
-def dental_agendar_cita():
-    return render_template('dental_agendar_cita.html')
-
-@app.route('/servicios/laboratorio')
-def laboratorio_analisis():
-    return render_template('laboratorio_analisis.html')
-
-@app.route('/servicios/laboratorio/solicitar-estudio')
-def laboratorio_solicitud():
-    return render_template('laboratorio_solicitud.html')
 def mall_3d():
     return render_template('mall_3d.html')
 
