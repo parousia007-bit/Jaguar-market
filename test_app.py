@@ -33,21 +33,20 @@ class AppTestCase(unittest.TestCase):
         self.assertTrue('/' in response.headers['Location'])
 
     def test_direct_route_tavolos(self):
-        response = self.app.get('/tavolos')
+        # Tavolos was removed in the cleanup, checking for one of the new vendors
+        response = self.app.get('/aura-joyeria')
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(b'Tavolos' in response.data)
+        self.assertTrue(b'Aura' in response.data)
 
     def test_pizzerias_route(self):
         response = self.app.get('/pizzerias')
         self.assertEqual(response.status_code, 200)
 
-    def test_vendor_demo(self):
-        # Test the new plug & play vendor
-        response = self.app.get('/vendor_demo')
+    def test_vendor_botanica(self):
+        # Test one of the new vendors
+        response = self.app.get('/botanica-urbana')
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(b'Tienda Demo' in response.data)
-        # Verify fallback image logic (generic check)
-        self.assertTrue(b'images.unsplash.com' in response.data)
+        self.assertTrue(b'Bot' in response.data)
 
 if __name__ == '__main__':
     unittest.main()

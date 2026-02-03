@@ -10,44 +10,54 @@
 
         :root {
             --jaguar-orange: #FF4D00;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-blur: 20px;
+            --fresh-white: #F8F9FA;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0a;
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(255, 77, 0, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 40%);
+            background: var(--fresh-white);
+            color: var(--text-primary);
             min-height: 100vh;
-            color: #fff;
             padding-bottom: 80px;
+        }
+
+        /* Subtle Background Gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255, 240, 230, 0.8) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(230, 240, 255, 0.8) 0%, transparent 40%);
+            z-index: -1;
         }
 
         .header {
             text-align: center;
-            padding: 80px 20px 40px;
-            position: relative;
+            padding: 100px 20px 60px;
         }
 
         .header h1 {
             font-size: 3.5em;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: 800;
-            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            color: var(--text-primary);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
         }
 
         .header p {
-            font-size: 1.2em;
-            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.25em;
+            color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
-            font-weight: 300;
+            font-weight: 400;
+            line-height: 1.6;
         }
 
         .container {
@@ -58,36 +68,36 @@
 
         .vendors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 40px;
         }
 
         .glass-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid white;
             border-radius: 24px;
-            padding: 0; /* Padding handled by inner elements */
+            padding: 0;
             overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27), box-shadow 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-decoration: none;
-            color: white;
+            color: var(--text-primary);
             display: flex;
             flex-direction: column;
-            position: relative;
+            box-shadow: var(--glass-shadow);
         }
 
         .glass-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 77, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .card-image-container {
-            height: 160px;
+            height: 220px;
             width: 100%;
-            background: #222;
+            background: #f1f2f6;
             position: relative;
             overflow: hidden;
         }
@@ -96,35 +106,34 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
-            opacity: 0.8;
+            transition: transform 0.8s ease;
         }
 
         .glass-card:hover .card-image {
-            transform: scale(1.1);
-            opacity: 1;
+            transform: scale(1.08);
         }
 
         .card-content {
-            padding: 25px;
+            padding: 30px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
         .vendor-name {
-            font-size: 1.6em;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #fff;
+            font-size: 1.5em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--text-primary);
         }
 
         .vendor-desc {
-            font-size: 0.95em;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.5;
-            margin-bottom: 25px;
+            font-size: 1em;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 30px;
             flex-grow: 1;
+            font-weight: 400;
         }
 
         .visit-btn {
@@ -132,26 +141,27 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding: 14px;
-            background: linear-gradient(90deg, var(--jaguar-orange), #ff7b00);
-            border-radius: 16px;
+            padding: 16px;
+            background: var(--jaguar-orange);
+            border-radius: 14px;
             font-weight: 700;
             color: white;
             font-size: 1rem;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 77, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 77, 0, 0.2);
         }
 
         .visit-btn:hover {
-            box-shadow: 0 6px 20px rgba(255, 77, 0, 0.5);
-            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 77, 0, 0.35);
+            transform: translateY(-2px);
+            background: #e64500;
         }
 
         /* Loading Skeleton Animation */
         .skeleton {
-            background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
             background-size: 200% 100%;
             animation: shimmer 1.5s infinite;
         }
@@ -162,8 +172,9 @@
         }
 
         @media (max-width: 768px) {
+            .header { padding: 60px 20px 40px; }
             .header h1 { font-size: 2.5em; }
-            .vendors-grid { grid-template-columns: 1fr; }
+            .vendors-grid { grid-template-columns: 1fr; gap: 25px; }
         }
     </style>
 </head>
@@ -171,7 +182,7 @@
 
     <div class="header">
         <h1>{{ config.name }}</h1>
-        <p>Descubre lo mejor de nuestro bazar. 50 tiendas exclusivas a tu alcance.</p>
+        <p>Una colección curada de 50 marcas locales excepcionales.</p>
     </div>
 
     <div class="container">
@@ -179,7 +190,7 @@
             {% for vendor in vendors %}
             <a href="/{{ vendor.id }}" class="glass-card">
                 <div class="card-image-container skeleton">
-                    <!-- Try to find a representative image from the first product, or fallback -->
+                    <!-- Smart Image Selection -->
                     {% set display_image = 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80' %}
                     {% if vendor.categories and vendor.categories[0].products and vendor.categories[0].products[0].image %}
                         {% set display_image = vendor.categories[0].products[0].image %}
@@ -196,7 +207,7 @@
                     <div class="vendor-name">{{ vendor.name }}</div>
                     <div class="vendor-desc">{{ vendor.description }}</div>
                     <button class="visit-btn">
-                        Ver Tienda <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                        Visitar Tienda <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                     </button>
                 </div>
             </a>
