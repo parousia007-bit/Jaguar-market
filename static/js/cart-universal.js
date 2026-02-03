@@ -233,6 +233,7 @@
     window.checkoutWhatsApp = function() {
         const name = document.getElementById('jm-name').value;
         const notes = document.getElementById('jm-notes').value;
+        const vendorName = document.body.dataset.vendorName || 'Bazar Jaguar';
 
         if (!name) {
             alert('Por favor escribe tu nombre');
@@ -244,9 +245,10 @@
             return;
         }
 
-        let msg = `*¡Nuevo Pedido!* 🛍️\n\n*Cliente:* ${name}\n`;
+        let msg = `*Pedido para ${vendorName}* 🛍️\n\n`;
+        msg += `*Cliente:* ${name}\n`;
         if (notes) msg += `*Notas:* ${notes}\n`;
-        msg += `\n*Detalle:*\n`;
+        msg += `\n*Resumen:*\n`;
 
         let total = 0;
         cart.forEach(item => {
@@ -255,7 +257,8 @@
             msg += `- ${item.qty}x ${item.name} ($${sub})\n`;
         });
 
-        msg += `\n*Total a Pagar: $${total}*`;
+        msg += `\n*Total a Pagar: $${total}*\n\n`;
+        msg += `_Por favor confirma este pedido al llegar al stand._`;
 
         const url = `https://wa.me/${VENDOR_PHONE}?text=${encodeURIComponent(msg)}`;
         window.open(url, '_blank');

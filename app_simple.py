@@ -26,12 +26,15 @@ def pizzerias():
 
 # Enterprise Single Template Route
 @app.route('/vendor/<vendor_id>')
+@app.route('/<vendor_id>')
 def vendor_site(vendor_id):
     # Reload data to support hot-reloading JSON during dev (optional but helpful)
     # MARKETPLACE_DATA = load_data()
 
     vendor = next((v for v in MARKETPLACE_DATA.get('vendors', []) if v['id'] == vendor_id), None)
     if not vendor:
+        # Check if it might be a static legacy file before 404ing (optional, but good for safety)
+        # For now, strictly follow the requested logic: if not in JSON, 404 (unless another route matches)
         abort(404)
 
     return render_template('mini-sites/vendor_base.html',

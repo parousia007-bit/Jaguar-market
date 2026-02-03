@@ -290,7 +290,7 @@
         }
     </style>
 </head>
-<body data-vendor-phone="{{ vendor.phone }}">
+<body data-vendor-phone="{{ vendor.phone }}" data-vendor-name="{{ vendor.name }}">
 
     <!-- Navigation Overlay -->
     <div style="position: fixed; top: 20px; left: 20px; z-index: 200;">
@@ -328,11 +328,9 @@
             {% for item in category.products %}
             <div class="glass-card product-item" data-category="{{ category.id }}">
 
-                {% if item.image %}
                 <div class="product-image-container skeleton">
-                    <img src="{{ item.image }}" alt="{{ item.name }}" class="product-image" onload="this.parentElement.classList.remove('skeleton')">
+                    <img src="{{ item.image or 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80' }}" alt="{{ item.name }}" class="product-image" onload="this.parentElement.classList.remove('skeleton')">
                 </div>
-                {% endif %}
 
                 <div class="item-header">
                     <div class="item-info">

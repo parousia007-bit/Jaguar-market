@@ -30,5 +30,22 @@ class AppTestCase(unittest.TestCase):
         response = self.app.get('/bazar/non_existent')
         self.assertEqual(response.status_code, 404)
 
+    def test_direct_route_tavolos(self):
+        response = self.app.get('/tavolos')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(b'Tavolos' in response.data)
+
+    def test_pizzerias_route(self):
+        response = self.app.get('/pizzerias')
+        self.assertEqual(response.status_code, 200)
+
+    def test_vendor_demo(self):
+        # Test the new plug & play vendor
+        response = self.app.get('/vendor_demo')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(b'Tienda Demo' in response.data)
+        # Verify fallback image logic (generic check)
+        self.assertTrue(b'images.unsplash.com' in response.data)
+
 if __name__ == '__main__':
     unittest.main()

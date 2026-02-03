@@ -944,6 +944,87 @@
           ]
         }
       ]
+    },
+    {
+      "id": "vendor_demo",
+      "name": "Tienda Demo",
+      "description": "Ejemplo de Tienda Plug & Play",
+      "phone": "5215555555555",
+      "categories": [
+        {
+          "id": "ropa",
+          "name": "👕 Ropa",
+          "filter_name": "Ropa",
+          "products": [
+            {
+              "name": "Camiseta Básica",
+              "description": "100% Algodón, disponible en varios colores.",
+              "badge": "Nuevo",
+              "badge_class": "premium",
+              "prices": [
+                {
+                  "label": "Unitalla",
+                  "value": 150
+                }
+              ],
+              "image": ""
+            },
+            {
+              "name": "Jeans Clásicos",
+              "description": "Corte recto, mezclilla resistente.",
+              "prices": [
+                {
+                  "label": "Talla 32",
+                  "value": 450
+                },
+                {
+                  "label": "Talla 34",
+                  "value": 450
+                }
+              ],
+              "image": ""
+            }
+          ]
+        },
+        {
+          "id": "accesorios",
+          "name": "💍 Accesorios",
+          "filter_name": "Accesorios",
+          "products": [
+            {
+              "name": "Collar de Plata",
+              "description": "Plata 925 con dije minimalista.",
+              "prices": [
+                {
+                  "label": "Pieza",
+                  "value": 350
+                }
+              ],
+              "image": ""
+            }
+          ]
+        },
+        {
+          "id": "comida",
+          "name": "🍔 Comida",
+          "filter_name": "Comida",
+          "products": [
+            {
+              "name": "Hamburguesa Clásica",
+              "description": "Carne de res, lechuga, tomate y papas.",
+              "badge": "Promo",
+              "badge_class": "picante",
+              "prices": [
+                {
+                  "label": "Combo",
+                  "value": 120
+                }
+              ],
+              "image": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
