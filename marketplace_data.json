@@ -1,0 +1,184 @@
+{
+  "marketplace_config": {
+    "name": "Jaguar Market",
+    "theme": {
+      "primary_gradient": "#F8F9FA",
+      "header_gradient": "linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%)",
+      "accent_gradient": "linear-gradient(135deg, #FF4D00, #ff7b00)",
+      "text_primary": "#2d3436",
+      "text_secondary": "#636e72",
+      "card_bg": "rgba(255, 255, 255, 0.8)",
+      "card_border": "rgba(0, 0, 0, 0.05)",
+      "shadow": "0 10px 40px rgba(0,0,0,0.06)"
+    }
+  },
+  "vendors": [
+    {
+      "id": "aura-joyeria",
+      "name": "Aura Joyería Artesanal",
+      "description": "Piezas únicas hechas a mano con amor y energía.",
+      "phone": "5215555555555",
+      "categories": [
+        {
+          "id": "pulseras",
+          "name": "Pulseras",
+          "filter_name": "Pulseras",
+          "products": [
+            {
+              "name": "Pulsera de Cuarzo Rosa",
+              "description": "Piedra natural para el amor propio.",
+              "badge": "Más Vendido",
+              "badge_class": "premium",
+              "prices": [
+                { "label": "Unitalla", "value": 280 }
+              ],
+              "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+              "name": "Set de Pulseras Tejidas",
+              "description": "Hilo de seda resistente, set de 3.",
+              "prices": [
+                { "label": "Set", "value": 150 }
+              ],
+              "image": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=600&q=80"
+            }
+          ]
+        },
+        {
+          "id": "aretes",
+          "name": "Aretes",
+          "filter_name": "Aretes",
+          "products": [
+            {
+              "name": "Aretes de Plata y Perla",
+              "description": "Plata .925 con perla de río.",
+              "badge": "Nuevo",
+              "badge_class": "premium",
+              "prices": [
+                { "label": "Par", "value": 450 }
+              ],
+              "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80"
+            }
+          ]
+        },
+        {
+            "id": "collares",
+            "name": "Collares",
+            "filter_name": "Collares",
+            "products": [
+                {
+                    "name": "Collar Árbol de la Vida",
+                    "description": "Dije calado a mano en latón.",
+                    "prices": [
+                        {"label": "Pieza", "value": 320}
+                    ],
+                    "image": "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&w=600&q=80"
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "id": "cacao-corazon",
+      "name": "Cacao & Corazón",
+      "description": "Delicias orgánicas de la tierra a tu paladar.",
+      "phone": "5215555555555",
+      "categories": [
+        {
+          "id": "chocolates",
+          "name": "Chocolates",
+          "filter_name": "Chocolate",
+          "products": [
+            {
+              "name": "Barra Artesanal 70% Cacao",
+              "description": "Cacao de Chiapas, notas frutales.",
+              "badge": "Orgánico",
+              "badge_class": "vegetariano",
+              "prices": [
+                { "label": "80g", "value": 95 }
+              ],
+              "image": "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+              "name": "Nibs de Cacao",
+              "description": "Trocitos de cacao tostado, superfood.",
+              "prices": [
+                { "label": "Bolsa 150g", "value": 120 }
+              ],
+              "image": "https://images.unsplash.com/photo-1542843137-8791a6904d14?auto=format&fit=crop&w=600&q=80"
+            }
+          ]
+        },
+        {
+          "id": "cafe",
+          "name": "Café",
+          "filter_name": "Café",
+          "products": [
+            {
+              "name": "Café de Especialidad (Grano)",
+              "description": "Tueste medio, altura 1200msnm.",
+              "badge": "Premium",
+              "badge_class": "premium",
+              "prices": [
+                { "label": "250g", "value": 180 },
+                { "label": "500g", "value": 320 }
+              ],
+              "image": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "botanica-urbana",
+      "name": "Botánica Urbana",
+      "description": "Vida verde para espacios modernos.",
+      "phone": "5215555555555",
+      "categories": [
+        {
+          "id": "macetas",
+          "name": "Macetas",
+          "filter_name": "Macetas",
+          "products": [
+            {
+              "name": "Maceta Geométrica Concreto",
+              "description": "Hecha a mano, incluye plato.",
+              "badge": "Diseño",
+              "badge_class": "premium",
+              "prices": [
+                { "label": "Chica", "value": 150 },
+                { "label": "Mediana", "value": 220 }
+              ],
+              "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80"
+            }
+          ]
+        },
+        {
+          "id": "plantas",
+          "name": "Plantas",
+          "filter_name": "Plantas",
+          "products": [
+            {
+              "name": "Suculenta Mini",
+              "description": "Variedad Echeveria, fácil cuidado.",
+              "prices": [
+                { "label": "Pieza", "value": 65 }
+              ],
+              "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80"
+            },
+             {
+              "name": "Kit Huerto en Casa",
+              "description": "Semillas, tierra y macetas biodegradables.",
+              "badge": "Popular",
+              "badge_class": "vegetariano",
+              "prices": [
+                { "label": "Kit", "value": 350 }
+              ],
+              "image": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=600&q=80"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

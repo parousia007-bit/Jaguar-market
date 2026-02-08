@@ -1,33 +1,119 @@
 import os
-from flask import Flask, render_template
+import json
+from flask import Flask, render_template, abort, request, jsonify, redirect, url_for
+from jinja2 import TemplateNotFound
 
 app = Flask(__name__)
 
+# Load Data
+def load_data():
+    try:
+        with open('marketplace_data.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print("Warning: marketplace_data.json not found.")
+        return {"marketplace_config": {}, "vendors": []}
+
+MARKETPLACE_DATA = load_data()
+
 @app.route('/')
 def index():
-    return render_template('index.html')  # Tu index_profesional.html ahora
+    return render_template('index.html',
+                           config=MARKETPLACE_DATA.get('marketplace_config'),
+                           vendors=MARKETPLACE_DATA.get('vendors', []))
 
 @app.route('/pizzerias')
 def pizzerias():
-    return render_template('pizzerias.html')  # Tu pizzerias.html original
+    return render_template('pizzerias.html')
 
-@app.route('/pizzerias/tavolos')
-def tavolos():
-    return render_template('pizzeria_tavolos.html')
+# Enterprise Single Template Route
+@app.route('/vendor/<vendor_id>')
+@app.route('/<vendor_id>')
+def vendor_site(vendor_id):
+    # Reload data to support hot-reloading JSON during dev (optional but helpful)
+    # MARKETPLACE_DATA = load_data()
 
-@app.route('/pizzerias/tavolos/menu-pdf')
-def tavolos_menu_pdf():
-    return render_template('pizzeria_tavolos_menu_completo.html')
+    vendor = next((v for v in MARKETPLACE_DATA.get('vendors', []) if v['id'] == vendor_id), None)
+    if not vendor:
+        # Fallback to home page if vendor not found (avoid broken page feeling)
+        return redirect(url_for('index'))
 
-# Otras rutas que puedas tener
-@app.route('/gelatinas/gelee-dely')
-def gelee_dely():
-    return render_template('gelee_dely.html')
+    return render_template('mini-sites/vendor_base.html',
+                         vendor=vendor,
+                         marketplace_config=MARKETPLACE_DATA.get('marketplace_config'))
 
-@app.route('/postres/gelee-dely')
-def gelee_dely_alt():
-    return render_template('gelee_dely.html')
+# Legacy Route Support
+@app.route('/bazar/<vendor_slug>')
+def bazar_vendor(vendor_slug):
+    # Check if this slug exists in our new data engine
+    vendor = next((v for v in MARKETPLACE_DATA.get('vendors', []) if v['id'] == vendor_slug), None)
+    if vendor:
+         return render_template('mini-sites/vendor_base.html',
+                         vendor=vendor,
+                         marketplace_config=MARKETPLACE_DATA.get('marketplace_config'))
 
+    # Fallback to static templates
+    try:
+        return render_template(f'mini-sites/{vendor_slug}.html')
+    except TemplateNotFound:
+        abort(404)
+
+@app.route('/api/cart/generate-tickets', methods=['POST'])
+def generate_tickets():
+    """
+    Process cart items and generate WhatsApp URLs per vendor.
+    Expected Payload: { "cart": [ { "name": "...", "price": 10, "qty": 1, "vendor_id": "tavolos" }, ... ], "customer": { ... } }
+    """
+    data = request.json or {}
+    cart = data.get('cart', [])
+    customer = data.get('customer', {})
+
+    if not cart:
+        return jsonify({"status": "error", "message": "Cart is empty"}), 400
+
+    # Group items by vendor
+    vendor_tickets = {}
+
+    for item in cart:
+        # Default to 'unknown' if not provided (handling legacy frontend)
+        vid = item.get('vendor_id', 'unknown')
+        if vid not in vendor_tickets:
+            vendor_tickets[vid] = []
+        vendor_tickets[vid].append(item)
+
+    results = []
+
+    for vid, items in vendor_tickets.items():
+        # Find vendor phone
+        vendor_data = next((v for v in MARKETPLACE_DATA.get('vendors', []) if v['id'] == vid), None)
+
+        phone = vendor_data['phone'] if vendor_data else "5215555555555" # Default/Fallback
+
+        # Build Message
+        message = f"*Nuevo Pedido para {vendor_data['name'] if vendor_data else vid}*\n\n"
+        message += f"Cliente: {customer.get('name', 'Anónimo')}\n"
+        message += f"Tel: {customer.get('phone', '')}\n\n"
+
+        total = 0
+        for i in items:
+            subtotal = i.get('price', 0) * i.get('qty', 1)
+            total += subtotal
+            message += f"- {i.get('qty')}x {i.get('name')} (${subtotal})\n"
+
+        message += f"\n*Total: ${total}*"
+
+        url = f"https://wa.me/{phone}?text={message}"
+        results.append({
+            "vendor_id": vid,
+            "whatsapp_url": url
+        })
+
+    return jsonify({
+        "status": "success",
+        "tickets": results
+    })
+
+# Admin & Other Routes
 @app.route('/admin/dashboard')
 def admin_dashboard():
     return render_template('admin_dashboard.html')
@@ -37,23 +123,6 @@ def plaza():
     return render_template('plaza/index.html')
 
 @app.route('/mall-3d')
-
-# ==== SERVICIOS PROFESIONALES ====
-@app.route('/servicios/dental')
-def consultorio_dental():
-    return render_template('consultorio_dental.html')
-
-@app.route('/servicios/dental/agendar-cita')
-def dental_agendar_cita():
-    return render_template('dental_agendar_cita.html')
-
-@app.route('/servicios/laboratorio')
-def laboratorio_analisis():
-    return render_template('laboratorio_analisis.html')
-
-@app.route('/servicios/laboratorio/solicitar-estudio')
-def laboratorio_solicitud():
-    return render_template('laboratorio_solicitud.html')
 def mall_3d():
     return render_template('mall_3d.html')
 
